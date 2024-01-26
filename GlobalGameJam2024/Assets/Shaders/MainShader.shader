@@ -4,22 +4,17 @@ Shader "Unlit/MasterShader"
     {
         _BaseColor("Color", Color) = (1,1,1,1)
         _BaseMap("Texture", 2D) = "white" {}
+        _FresnelPow("Fresnel Pow", float) = 8
+        [HDR]_FresnelColor("Fresnel Col", Color) = (1,1,1,1)
     }
 
     SubShader
     {
-        Tags { "RenderType" = "Opaque" "Queue" = "Geometry" "RenderPipeline" = "UniversalRenderPipeline" }
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
         LOD 100
-        ZWrite On
 
         Pass
         {
-            Stencil
-            {
-                Ref[_Stencil]
-                Pass Replace
-                Comp Always
-            }
 
             Tags 
             { 
@@ -44,6 +39,8 @@ Shader "Unlit/MasterShader"
                 float4 positionOS   : POSITION;
                 float2 uv           : TEXCOORD0;
                 float4 color        : COLOR;
+                float4 normal       : NORMAL;
+                float4 tangent      : TANGENT;
             };
 
             struct v2f
@@ -54,6 +51,7 @@ Shader "Unlit/MasterShader"
                 float4 color        : COLOR;
                 float4 shadowCoord : TEXCOORD1;
                 float3 positionWS   : TEXCOORD2;
+                float3 normalWS : TEXCOORD3;
             };
 
             //Colors
@@ -62,6 +60,9 @@ Shader "Unlit/MasterShader"
             SAMPLER(sampler_BaseMap);
             float4 _BaseMap_ST;
 
+            float _FresnelPow;
+            float4 _FresnelColor;
+
             v2f vert(appdata IN)
             {
                 v2f OUT;
@@ -69,23 +70,33 @@ Shader "Unlit/MasterShader"
                 UNITY_SETUP_INSTANCE_ID(IN);
                 UNITY_TRANSFER_INSTANCE_ID(IN, OUT);
                 VertexPositionInputs positionInputs = GetVertexPositionInputs(IN.positionOS.xyz);
+                VertexNormalInputs normalInputs = GetVertexNormalInputs(IN.normal.xyz, IN.tangent);
 
                 OUT.positionCS = positionInputs.positionCS;
                 OUT.positionWS = positionInputs.positionWS;
                 OUT.uv = IN.uv;
                 OUT.color = IN.color;
                 OUT.shadowCoord = GetShadowCoord(positionInputs);
+                OUT.normalWS = normalInputs.normalWS;
 
                 return OUT;
             }
 
-            float4 frag(v2f IN) : SV_Target
+            float4 frag(v2f i) : SV_Target
             {
-                float4 baseMap = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, (IN.uv * _BaseMap_ST.xy) + _BaseMap_ST.zw);
+                float4 baseMap = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, (i.uv * _BaseMap_ST.xy) + _BaseMap_ST.zw);
                 baseMap = baseMap * _BaseColor;
 
-                float4 shadowCoord = TransformWorldToShadowCoord(IN.positionWS.xyz);
+                float4 shadowCoord = TransformWorldToShadowCoord(i.positionWS.xyz);
                 Light light = GetMainLight(shadowCoord);
+                float NdotL = dot(i.normalWS, light.direction);
+
+                // Frensel
+                float3 viewDir = normalize(_WorldSpaceCameraPos - i.positionWS);
+                float fresnel = pow(1.0f - dot(viewDir, i.normalWS), _FresnelPow);
+                fresnel = step(0.3f, fresnel);
+                float rimLight = saturate(fresnel * NdotL);
+                baseMap.rgb = lerp(baseMap.rgb, _FresnelColor, rimLight);
 
                 // Shadows
                 baseMap.rgb = lerp(baseMap.rgb * 0.2f, baseMap.rgb, light.shadowAttenuation);

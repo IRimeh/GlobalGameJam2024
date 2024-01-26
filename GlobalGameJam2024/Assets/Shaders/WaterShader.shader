@@ -160,6 +160,7 @@ Shader "Unlit/WaterShader"
                     //Specular calculation
                     float specular = saturate(dot(lightReflectDir, viewDir));
                     specular = pow(specular, exp2(_Gloss * 12.0f)) * _SpecularColor * step(0.5f, light.shadowAttenuation);
+                    specular = step(0.1f, specular);
 
                     //Env
                     float3 env = texCUBE(_EnvTex, reflect(-viewDir, i.normal.xyz));
@@ -172,13 +173,15 @@ Shader "Unlit/WaterShader"
 
                     //Line around geometry
                     float shoreLine = step(depth - NDotLNorm * 0.0015f, 0.001f);
-                    float additionalSpecs = saturate(step(NDotLNorm, 0.1f) - shoreLine) * _AdditionalSpecs;
+                    float additionalSpecs = saturate(step(NDotLNorm, 0.1f) - shoreLine) ;
 
                     //Composition
                     float alpha = lerp(_ShallowColor.a, _DeepColor.a, saturate(depth / _AlphaDepth));
                     float3 baseTex = lerp(_ShallowColor, _DeepColor, saturate(depth / _MaxDepth));
 
-                    float4 output = float4((baseTex * NDotL + specular + env * _EnvStrength + (shoreLine * _ShorelineColor) + additionalSpecs) * shadow, saturate(alpha + specular + shoreLine));
+                    baseTex.rgb = lerp(baseTex.rgb, baseTex.rgb * 0.8f, step(0.75f, dot(normal, light.direction)));
+
+                    float4 output = float4((baseTex * NDotL + specular + env * _EnvStrength + (shoreLine * _ShorelineColor)) * shadow, saturate(alpha + specular + shoreLine));
                     return output;
                 }
             ENDHLSL

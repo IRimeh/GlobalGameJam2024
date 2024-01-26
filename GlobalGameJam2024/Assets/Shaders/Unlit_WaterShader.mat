@@ -25,23 +25,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4b9b9125794459d4292740f569d50ae5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AdditionalSpecs: -0.0025
+    - _AdditionalSpecs: 0.0025
     - _AlphaDepth: 0.25
-    - _DetailWaveSize: 2
+    - _DetailWaveSize: 8
     - _EnvStrength: 0.75
-    - _Gloss: 1
+    - _Gloss: 0.679
     - _MaxDepth: 0.024
-    - _NormalStrength: 1
+    - _NormalStrength: 1.033
     - _ShadowStrength: 0.5
-    - _WaveScrollSpeed: 1
-    - _WaveSize: 1
+    - _WaveScrollSpeed: 0.4
+    - _WaveSize: 5
     m_Colors:
-    - _DeepColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+    - _DeepColor: {r: 0.3037113, g: 0.34098193, b: 0.6132076, a: 1}
     - _ShallowColor: {r: 0.41037738, g: 0.76795435, b: 1, a: 1}
     - _ShorelineColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
