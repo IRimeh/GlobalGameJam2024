@@ -96,7 +96,7 @@ Shader "Unlit/MasterShader"
                 float fresnel = pow(1.0f - dot(viewDir, i.normalWS), _FresnelPow);
                 fresnel = step(0.3f, fresnel);
                 float rimLight = saturate(fresnel * NdotL);
-                baseMap.rgb = lerp(baseMap.rgb, _FresnelColor, rimLight);
+                baseMap.rgb = lerp(baseMap.rgb, _FresnelColor, rimLight * _FresnelColor.a);
 
                 // Shadows
                 baseMap.rgb = lerp(baseMap.rgb * 0.5f, baseMap.rgb, light.shadowAttenuation);
@@ -148,5 +148,8 @@ Shader "Unlit/MasterShader"
         }
 
         UsePass "Universal Render Pipeline/Lit/DepthOnly"
+
+        // Used for Baking GI. This pass is stripped from build.
+        UsePass "Universal Render Pipeline/Lit/Meta"
     }
 }
