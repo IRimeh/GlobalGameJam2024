@@ -88,8 +88,9 @@ public class Orc : MonoBehaviour
         HoldingObj = gameObject;
     }
 
-    public void StopHoldingObject()
+    public void StopHoldingObject(out GameObject holdingObj)
     {
+        holdingObj = HoldingObj;
         isHoldingObj = false;
         HoldingObj = null;
         gameObject.transform.SetParent(null);

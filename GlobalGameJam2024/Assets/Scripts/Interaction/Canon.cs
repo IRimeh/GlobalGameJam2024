@@ -42,8 +42,10 @@ public class Canon : AbstractInteractableObject
                 orc.animator.SetBool("isWorking", true);
                 yield return new WaitForSeconds(3.0f);
                 orc.animator.SetBool("isWorking", false);
-                canonballCount++;
+                canonballCount = 1;
                 cannonState = CannonState.Firing;
+                orc.StopHoldingObject(out GameObject holdingObj);
+                Destroy(holdingObj);
                 break;
             case CannonState.Firing:
 
@@ -113,11 +115,10 @@ public class Canon : AbstractInteractableObject
 
     public override bool IsWorkable(Orc orc)
     {
-
         switch (cannonState)
         {
             case CannonState.Loading:
-                if (orc.isHoldingObj && orc.HoldingObj.name == "Cannonball" && workerList.Count < MaxOrcsLoading)
+                if (orc.isHoldingObj && orc.HoldingObj.TryGetComponent<Cannonball>(out _) && workerList.Count < MaxOrcsLoading)
                     return true;
                 break;
             case CannonState.Firing:
