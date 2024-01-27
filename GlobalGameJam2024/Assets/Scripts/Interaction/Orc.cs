@@ -16,6 +16,9 @@ public class Orc : MonoBehaviour
 
     public Animator animator;
 
+    public List<GameObject> ToDisableForRagdoll = new List<GameObject>();
+    public GameObject RagdollObj;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,5 +44,36 @@ public class Orc : MonoBehaviour
     private void Update()
     {
         hipJoint.targetRotation = Quaternion.Euler(new Vector3(0.0f, -transform.rotation.eulerAngles.y, 0.0f));
+    }
+
+    public void RagdollForSeconds(float seconds)
+    {
+        StartCoroutine(UnRagdollTimer());
+        IEnumerator UnRagdollTimer()
+        {
+            Ragdoll();
+            yield return new WaitForSeconds(seconds);
+            UnRagdoll();
+        }
+    }
+
+    public void Ragdoll()
+    {
+        agent.enabled = false;
+        foreach (GameObject obj in ToDisableForRagdoll)
+        {
+            obj.SetActive(false);
+        }
+        RagdollObj.SetActive(true);
+    }
+
+    public void UnRagdoll()
+    {
+        agent.enabled = true;
+        foreach (GameObject obj in ToDisableForRagdoll)
+        {
+            obj.SetActive(true);
+        }
+        RagdollObj.SetActive(false);
     }
 }

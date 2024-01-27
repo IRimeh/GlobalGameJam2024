@@ -7,4 +7,6 @@ public abstract class AbstractInteractableObject : MonoBehaviour
     abstract public IEnumerator Task(Orc orc);
 
     abstract public void OnStopTask(Orc orc);
+
+    abstract public bool IsWorkable();
 }

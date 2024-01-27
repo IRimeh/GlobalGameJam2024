@@ -42,8 +42,8 @@ public class InteractionController : MonoBehaviour
                 {
                     if(orcs.Count > 0) {
                         foreach(Orc orc in orcs) {
-                            orc.Work(interactable);
-                            
+                            if(interactable.IsWorkable())
+                                orc.Work(interactable);
                         }
                         orcs.Clear();
                     }
@@ -65,7 +65,10 @@ public class InteractionController : MonoBehaviour
         else
         {
             leftArmAnim.SetBool("isPointing", false);
+            orcs.Clear();
         }
+
+
         if (Input.GetMouseButtonDown(1))//Charge slap
         {
             
@@ -73,6 +76,15 @@ public class InteractionController : MonoBehaviour
         if (Input.GetMouseButtonUp(1)) //Release slap |give command
         {
             rightArmAnim.Play("Slap");
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach (Orc orc in orcs)
+        {
+            Gizmos.color = new Color(0, 1.0f, 0, 0.6f);
+            Gizmos.DrawSphere(orc.transform.position + Vector3.up * 1.0f, 0.25f);
         }
     }
 }

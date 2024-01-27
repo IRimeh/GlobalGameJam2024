@@ -10,38 +10,35 @@ public class Canon : AbstractInteractableObject
 
     bool readyToFire = false;
 
+    public int MaxOrcs = 3;
+
 
     override public IEnumerator Task(Orc orc)
     {
         orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
-        while (true) 
+        workerList.Add(orc);
+        while (!readyToFire)
         {
             float distance = (transform.position - orc.transform.position).magnitude;
 
-            if (!readyToFire && canonballCount > 0 && distance < 2)//in working Range
+            if (canonballCount > 0 && distance < 2)//in working Range
             {
                 orc.animator.SetBool("isWorking", true);
-                workerList.Add(orc);
             }
             else
             {
-                if(workerList.Contains(orc))workerList.Remove(orc);
                 orc.animator.SetBool("isWorking", false);
                 yield return new WaitForSeconds(1f);
             }
             yield return new WaitForSeconds(1f);
-        }  
+        }
+
+        workerList.Clear();
     }
 
     override public void OnStopTask(Orc orc)
     {
         workerList.Remove(orc);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -70,6 +67,11 @@ public class Canon : AbstractInteractableObject
     public void Fire()
     {
         readyToFire = false;
+    }
 
+    public override bool IsWorkable()
+    {
+        bool workable = canonballCount > 0 && workerList.Count < MaxOrcs;
+        return workable;
     }
 }

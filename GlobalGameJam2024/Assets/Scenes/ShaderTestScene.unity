@@ -124,6 +124,95 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 0f348da41db379c43a8a63da28103b33, type: 2}
+--- !u!1001 &15688423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8455815107083914556, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815107607386585, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108161332925, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082634, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_Name
+      value: Canon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082634, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.901745
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.13052632
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9914449
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 195
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455815108216082639, guid: 30c7adcf17c04a240be1e73e97241643,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 30c7adcf17c04a240be1e73e97241643, type: 3}
 --- !u!1001 &24553809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -246,6 +335,8 @@ MonoBehaviour:
   hipJoint: {fileID: 240526313}
   rigidBody: {fileID: 240526312}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &25906517
 Animator:
   serializedVersion: 5
@@ -5259,6 +5350,8 @@ MonoBehaviour:
   hipJoint: {fileID: 470426243}
   rigidBody: {fileID: 470426242}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &122161695
 Animator:
   serializedVersion: 5
@@ -5648,6 +5741,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1775431065}
   rigidBody: {fileID: 1775431064}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &178075292
 Animator:
   serializedVersion: 5
@@ -5799,6 +5894,8 @@ MonoBehaviour:
   hipJoint: {fileID: 829783460}
   rigidBody: {fileID: 829783462}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!4 &209345235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5188593906409054245, guid: 1389171e016b3514caa67d5780e500ab,
@@ -5998,6 +6095,8 @@ MonoBehaviour:
   hipJoint: {fileID: 127630762}
   rigidBody: {fileID: 127630761}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &290295093
 Animator:
   serializedVersion: 5
@@ -6062,6 +6161,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1685134709}
   rigidBody: {fileID: 1685134708}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &321894970
 Animator:
   serializedVersion: 5
@@ -6324,6 +6425,8 @@ MonoBehaviour:
   hipJoint: {fileID: 414130523}
   rigidBody: {fileID: 414130522}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &388282517
 Animator:
   serializedVersion: 5
@@ -6576,6 +6679,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1132216001}
   rigidBody: {fileID: 1132216000}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &455145601
 Animator:
   serializedVersion: 5
@@ -6652,6 +6757,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1432553991}
   rigidBody: {fileID: 1432553990}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &496593860
 Animator:
   serializedVersion: 5
@@ -6806,6 +6913,8 @@ MonoBehaviour:
   hipJoint: {fileID: 733621464}
   rigidBody: {fileID: 733621463}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &503400730
 Animator:
   serializedVersion: 5
@@ -7111,131 +7220,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1389171e016b3514caa67d5780e500ab, type: 3}
---- !u!1 &597301367
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 597301368}
-  - component: {fileID: 597301371}
-  - component: {fileID: 597301370}
-  - component: {fileID: 597301369}
-  - component: {fileID: 597301372}
-  m_Layer: 6
-  m_Name: Trigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &597301368
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597301367}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.020965576, y: 0.00096702576, z: 0.015187073}
-  m_LocalScale: {x: 1.1834111, y: 0.20486812, z: 1.169972}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 497717106}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &597301369
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597301367}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &597301370
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597301367}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 14fab852cc9a0bb4abdd3f3258eae002, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &597301371
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597301367}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &597301372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597301367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f726fd3c8489e845b0fc1cb8744aae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 555624615}
-        m_TargetAssemblyTypeName: RockSpawner, Assembly-CSharp
-        m_MethodName: ControlShip
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1 &601126518 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4848764942447606431, guid: 1389171e016b3514caa67d5780e500ab,
@@ -7265,6 +7249,8 @@ MonoBehaviour:
   hipJoint: {fileID: 2087540030}
   rigidBody: {fileID: 2087540029}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &601126522
 Animator:
   serializedVersion: 5
@@ -7444,6 +7430,8 @@ MonoBehaviour:
   hipJoint: {fileID: 174871629}
   rigidBody: {fileID: 174871628}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &651674001
 Animator:
   serializedVersion: 5
@@ -7520,6 +7508,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1998352769}
   rigidBody: {fileID: 1998352768}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &708538623
 Animator:
   serializedVersion: 5
@@ -12429,6 +12419,8 @@ MonoBehaviour:
   hipJoint: {fileID: 354808470}
   rigidBody: {fileID: 354808469}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &851442055
 Animator:
   serializedVersion: 5
@@ -12784,6 +12776,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1164620632}
   rigidBody: {fileID: 1164620631}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &936222179
 Animator:
   serializedVersion: 5
@@ -12890,7 +12884,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1060024658
 PrefabInstance:
@@ -13060,7 +13054,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1076697699 stripped
 Rigidbody:
@@ -13241,6 +13235,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1190628032}
   rigidBody: {fileID: 1190628031}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1095021228
 Animator:
   serializedVersion: 5
@@ -13571,6 +13567,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1076697700}
   rigidBody: {fileID: 1076697699}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1241289306
 Animator:
   serializedVersion: 5
@@ -13635,6 +13633,8 @@ MonoBehaviour:
   hipJoint: {fileID: 707254752}
   rigidBody: {fileID: 707254751}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1244561872
 Animator:
   serializedVersion: 5
@@ -13699,6 +13699,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1066013300}
   rigidBody: {fileID: 1066013299}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1267079040
 Animator:
   serializedVersion: 5
@@ -13740,6 +13742,75 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5142602350297823204}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1312247558
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7895923205997988583, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_Name
+      value: CanonballPile
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.053171
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.643
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2970357
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895923205997988587, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 823e71f1ce9c5824aa68f076fc2b1a08, type: 3}
 --- !u!1 &1328836229
 GameObject:
   m_ObjectHideFlags: 0
@@ -13799,7 +13870,7 @@ Transform:
   - {fileID: 851442052}
   - {fileID: 388282514}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1344849632
 PrefabInstance:
@@ -13935,6 +14006,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1743852000}
   rigidBody: {fileID: 1743851999}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1372790111
 Animator:
   serializedVersion: 5
@@ -13999,6 +14072,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1344934335}
   rigidBody: {fileID: 1344934334}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1408713588
 Animator:
   serializedVersion: 5
@@ -14100,7 +14175,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1432553990 stripped
 Rigidbody:
@@ -14242,7 +14317,7 @@ Transform:
   m_Children:
   - {fileID: 555624616}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1472404394
 PrefabInstance:
@@ -14738,6 +14813,8 @@ MonoBehaviour:
   hipJoint: {fileID: 971292981}
   rigidBody: {fileID: 971292980}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1588883043
 Animator:
   serializedVersion: 5
@@ -14899,6 +14976,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1194502418}
   rigidBody: {fileID: 1194502417}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1614666814
 Animator:
   serializedVersion: 5
@@ -14963,6 +15042,8 @@ MonoBehaviour:
   hipJoint: {fileID: 893607724}
   rigidBody: {fileID: 893607723}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1615456534
 Animator:
   serializedVersion: 5
@@ -15120,6 +15201,8 @@ MonoBehaviour:
   hipJoint: {fileID: 272364402}
   rigidBody: {fileID: 272364401}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1629997919
 Animator:
   serializedVersion: 5
@@ -15277,6 +15360,8 @@ MonoBehaviour:
   hipJoint: {fileID: 1706463716}
   rigidBody: {fileID: 1706463715}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1652792033
 Animator:
   serializedVersion: 5
@@ -15446,6 +15531,8 @@ MonoBehaviour:
   hipJoint: {fileID: 2030549436}
   rigidBody: {fileID: 2030549435}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1701252187
 Animator:
   serializedVersion: 5
@@ -15645,6 +15732,8 @@ MonoBehaviour:
   hipJoint: {fileID: 944208764}
   rigidBody: {fileID: 944208763}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1856824416
 Animator:
   serializedVersion: 5
@@ -15802,6 +15891,8 @@ MonoBehaviour:
   hipJoint: {fileID: 263925305}
   rigidBody: {fileID: 263925304}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &1919287888
 Animator:
   serializedVersion: 5
@@ -16356,6 +16447,8 @@ MonoBehaviour:
   hipJoint: {fileID: 521379216}
   rigidBody: {fileID: 521379215}
   animator: {fileID: 0}
+  ToDisableForRagdoll: []
+  RagdollObj: {fileID: 0}
 --- !u!95 &2062230366
 Animator:
   serializedVersion: 5
@@ -21224,6 +21317,80 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &4520894956466925380
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 497717106}
+    m_Modifications:
+    - target: {fileID: 4520894956961462067, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_Name
+      value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462072, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 555624615}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.020965576
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00096702576
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.015187073
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894956961462076, guid: 81220475c6c5d0e4faae32d73f5fc89f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 81220475c6c5d0e4faae32d73f5fc89f, type: 3}
 --- !u!1001 &5068462477338285462
 PrefabInstance:
   m_ObjectHideFlags: 0
