@@ -7,6 +7,8 @@ Shader "Unlit/WaterShader"
         _ShallowColor("Shallow Color", Color) = (1,1,1,1)
         _MaxDepth("Max Depth", Range(0, 1)) = 0.5
         _AlphaDepth("Alpha Depth", Range(0, 1)) = 0.25
+        _WaveHeightTex("Wave Height", 2D) = "black" {}
+        _Scale("Scale", float) = 1
 
         [Header(Additional Colors)]
         _ShorelineColor("Shoreline Color", Color) = (1,1,1,1)
@@ -68,9 +70,14 @@ Shader "Unlit/WaterShader"
                     half4 tspace0 : ATTR2; // wpos x in w
                     half4 tspace1 : ATTR3; // wpos y in w
                     half4 tspace2 : ATTR4; // wpos z in w
+                    float height : ATTR5;
+                    half3 vertexPos : ATTR6;
                     UNITY_VERTEX_INPUT_INSTANCE_ID
                 };
 
+                TEXTURE2D(_WaveHeightTex);
+                SAMPLER(sampler_WaveHeightTex);
+                float4 _WaveHeightTex_ST;
                 TEXTURE2D(_NormalTex);
                 SAMPLER(sampler_NormalTex);
                 float4 _NormalTex_ST;
@@ -97,6 +104,9 @@ Shader "Unlit/WaterShader"
                 float4 _ShorelineColor;
                 float _AdditionalSpecs;
 
+                float3 _PlayerOffset;
+                float _Scale;
+
                 v2f vert(appdata v)
                 {
                     v2f o;
@@ -105,16 +115,36 @@ Shader "Unlit/WaterShader"
                     UNITY_TRANSFER_INSTANCE_ID(v, o);
 
                     VertexPositionInputs positionInputs = GetVertexPositionInputs(v.vertex.xyz);
+
+                    
+
+                    float3 scrollingwPos = positionInputs.positionWS.xyz - _PlayerOffset;
+
+                    float3 objPos = v.vertex.xyz;
+                    scrollingwPos = objPos * _Scale * 100.0f - _PlayerOffset;
+                    // Height texs  
+                    float3 waveHeight1 = SAMPLE_TEXTURE2D_LOD(_WaveHeightTex, sampler_WaveHeightTex, (scrollingwPos.xz + _WaveScrollDir * _Time.y * _WaveScrollSpeed * _WaveHeightTex_ST.zw) * _WaveSize * 0.01f * _WaveHeightTex_ST.xy, 2);
+                    float3 waveHeight2 = SAMPLE_TEXTURE2D_LOD(_WaveHeightTex, sampler_WaveHeightTex, (scrollingwPos.xz - _WaveScrollDir * _Time.y * _WaveScrollSpeed * _WaveHeightTex_ST.zw) * _DetailWaveSize * 0.01f * _WaveHeightTex_ST.xy, 2);
+                    float3 waveHeight = (waveHeight1 + waveHeight2) * 0.5f;
+
+                    v.vertex.y += waveHeight.r * 8.0f * 1;
+                    positionInputs = GetVertexPositionInputs(v.vertex.xyz);
                     VertexNormalInputs normalInputs = GetVertexNormalInputs(v.normal.xyz, v.tangent);
 
                     o.tspace0.xyz = half3(normalInputs.tangentWS.x, normalInputs.bitangentWS.x, normalInputs.normalWS.x);
                     o.tspace1.xyz = half3(normalInputs.tangentWS.y, normalInputs.bitangentWS.y, normalInputs.normalWS.y);
                     o.tspace2.xyz = half3(normalInputs.tangentWS.z, normalInputs.bitangentWS.z, normalInputs.normalWS.z);
 
+                    ////Follow player
+                    //positionInputs.positionWS.xyz += float3(_WorldSpaceCameraPos.x, -7.5, _WorldSpaceCameraPos.z);// _PlayerPosition.xz;
+                    //positionInputs = GetVertexPositionInputs(mul(unity_WorldToObject, positionInputs.positionWS));
+
                     o.vertex = positionInputs.positionCS;
                     o.normal.xyz = normalInputs.normalWS;
                     o.uv.xy = v.uv;
                     o.uv.z = -TransformWorldToView(positionInputs.positionWS).z;
+                    o.height = waveHeight.r;
+                    o.vertexPos = v.vertex.xyz;
 
                     // Pack vars
                     o.normal.w = ComputeFogFactor(positionInputs.positionCS.z);
@@ -130,11 +160,14 @@ Shader "Unlit/WaterShader"
                     UNITY_SETUP_INSTANCE_ID(i);
 
                     float3 wPos = half3(i.tspace0.w, i.tspace1.w, i.tspace2.w);
+                    float3 objPos = i.vertexPos.xyz;
+                    float3 scrollingwPos = objPos * _Scale * 100.0f - _PlayerOffset;
+                    //float3 scrollingwPos = wPos;// -_PlayerOffset;
                     float2 screenUvs = i.vertex.xy / _ScaledScreenParams.xy;
 
                     // Normal Textures  
-                    float3 normalTex1 = UnpackNormal(SAMPLE_TEXTURE2D(_NormalTex, sampler_NormalTex, (wPos.xz + _WaveScrollDir * _Time.y * _WaveScrollSpeed) * _WaveSize * 0.01f));
-                    float3 normalTex2 = UnpackNormal(SAMPLE_TEXTURE2D(_NormalTex, sampler_NormalTex, (wPos.xz - _WaveScrollDir * _Time.y * _WaveScrollSpeed) * _DetailWaveSize * 0.01f));
+                    float3 normalTex1 = UnpackNormal(SAMPLE_TEXTURE2D(_NormalTex, sampler_NormalTex, (scrollingwPos.xz + _WaveScrollDir * _Time.y * _WaveScrollSpeed) * _WaveSize * 0.01f));
+                    float3 normalTex2 = UnpackNormal(SAMPLE_TEXTURE2D(_NormalTex, sampler_NormalTex, (scrollingwPos.xz - _WaveScrollDir * _Time.y * _WaveScrollSpeed) * _DetailWaveSize * 0.01f));
                     float3 normalTex = (normalTex1 + normalTex2) * 0.5f;
 
                     // Light
@@ -178,8 +211,10 @@ Shader "Unlit/WaterShader"
                     //Composition
                     float alpha = lerp(_ShallowColor.a, _DeepColor.a, saturate(depth / _AlphaDepth));
                     float3 baseTex = lerp(_ShallowColor, _DeepColor, saturate(depth / _MaxDepth));
+                    baseTex.rgb = lerp(baseTex.rgb, _ShallowColor, smoothstep(0.1f, 0.5f, i.height));
+                    baseTex.rgb = lerp(baseTex.rgb, _DeepColor * 0.2f, 1.0f - smoothstep(0.0f, 0.1f, i.height));
 
-                    baseTex.rgb = lerp(baseTex.rgb, baseTex.rgb * 0.8f, step(0.75f, dot(normal, light.direction)));
+                    baseTex.rgb = lerp(baseTex.rgb, baseTex.rgb * 0.7f, step(0.75f, dot(normal, light.direction)));
 
                     float4 output = float4((baseTex * NDotL + specular + env * _EnvStrength + (shoreLine * _ShorelineColor)) * shadow, saturate(alpha + specular + shoreLine));
                     return output;
