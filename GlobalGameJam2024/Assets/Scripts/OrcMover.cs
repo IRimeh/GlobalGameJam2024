@@ -6,10 +6,17 @@ using UnityEngine.EventSystems;
 
 public class OrcMover : MonoBehaviour
 {
-	public ConfigurableJoint joint;
+	public ConfigurableJoint hipjoint;
 
-	public Transform hips;
-	public Transform rips;
+	private NavMeshAgent agent;
+
+	private Vector3 HipPos;
+
+	private void Start()
+	{
+		agent = GetComponent<NavMeshAgent>();
+		HipPos = hipjoint.transform.position;
+	}
 	private void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
@@ -18,13 +25,12 @@ public class OrcMover : MonoBehaviour
 
 			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
 			{
-				GetComponent<NavMeshAgent>().destination = hit.point;
+				agent.destination = hit.point;
 			}
 		}
 
-		joint.targetRotation = Quaternion.Euler(new Vector3(-transform.rotation.eulerAngles.y, 0.0f, 0.0f));
+		hipjoint.targetRotation = Quaternion.Euler(new Vector3(0.0f, -transform.rotation.eulerAngles.y, 0.0f));
 
-		rips.localPosition = Vector3.zero;
-		hips.localPosition = Vector3.zero;
+		//hipjoint.transform.localPosition = HipPos;
 	}
 }
