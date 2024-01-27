@@ -29,7 +29,7 @@ public class InteractionController : MonoBehaviour
                 target = hit.point;
 
                 Orc hitOrc = hit.collider.GetComponent<Orc>();
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                AbstractInteractableObject interactable = hit.collider.GetComponent<AbstractInteractableObject>();
 
                 if (hitOrc)
                 {
@@ -38,12 +38,12 @@ public class InteractionController : MonoBehaviour
                         orcs.Add(hitOrc);
                     }
                 }
-                else if (interactable)
+                else if (interactable != null)
                 {
                     if(orcs.Count > 0) {
                         foreach(Orc orc in orcs) {
                             orc.Work(interactable);
-                            orc.animator.SetBool("isWorking", true);
+                            
                         }
                         orcs.Clear();
                     }
