@@ -11,7 +11,7 @@ public class InteractionController : MonoBehaviour
     Animator leftArmAnim, rightArmAnim;
 
     [SerializeField]
-    Orc orc;
+    List<Orc> orcs;
 
     private void Update()
     {
@@ -28,17 +28,25 @@ public class InteractionController : MonoBehaviour
             {
                 target = hit.point;
 
+                Orc orc = hit.collider.GetComponent<Orc>();
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
 
-                if (hit.collider.GetComponent<Interactable>() != null)
+                if (orc)
                 {
-                    Interactable interactable = hit.collider.GetComponent<Interactable>();
-                    orc.Work(interactable);
-                    orc.animator.SetBool("isWorking", true);
+                    if (!orcs.Contains(orc))
+                    {
+                        orcs.Add(orc);
+                    }
+                }
+                else if (interactable)
+                {
+                    orcs[0]?.Work(interactable);
+                    orcs[0]?.animator.SetBool("isWorking", true);
                 }
                 else
                 {
-                    orc.agent.SetDestination(target);
-                    orc.animator.SetBool("isWorking", false);
+                    orcs[0]?.agent.SetDestination(target);
+                    orcs[0]?.animator.SetBool("isWorking", false);
                 }
             } 
         }
