@@ -117,11 +117,11 @@ public class Canon : AbstractInteractableObject
         switch (cannonState)
         {
             case CannonState.Loading:
-                if (orc.isHoldingObj && orc.HoldingObj.name == "Cannonball" && workerList.Count < 1)
+                if (orc.isHoldingObj && orc.HoldingObj.name == "Cannonball" && workerList.Count < MaxOrcsLoading)
                     return true;
                 break;
             case CannonState.Firing:
-                if (canonballCount > 0 && workerList.Count < 3)
+                if (canonballCount > 0 && workerList.Count < MaxOrcsFiring)
                     return true;
                 break;
         }

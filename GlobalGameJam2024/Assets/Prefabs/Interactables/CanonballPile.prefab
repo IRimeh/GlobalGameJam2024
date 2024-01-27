@@ -1467,6 +1467,7 @@ GameObject:
   - component: {fileID: 7895923205997988580}
   - component: {fileID: 7895923205997988581}
   - component: {fileID: 7895923205997988582}
+  - component: {fileID: 755593585607070943}
   m_Layer: 0
   m_Name: CanonballPile
   m_TagString: Untagged
@@ -1582,6 +1583,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &755593585607070943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7895923205997988583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30510f9973613da48bb89c8fed4d0d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CannonballPrefab: {fileID: 306347313111835773, guid: 4b34cb3497ebdc5489c99a8eb3866bcd,
+    type: 3}
 --- !u!1 &7895923206130020526
 GameObject:
   m_ObjectHideFlags: 0
