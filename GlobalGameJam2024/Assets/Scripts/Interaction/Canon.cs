@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Canon : AbstractInteractableObject
 {
@@ -12,6 +13,7 @@ public class Canon : AbstractInteractableObject
 
     public int MaxOrcsFiring = 3;
     public int MaxOrcsLoading = 1;
+    public ParticleSystem OnFireParticleSystem;
 
     private enum CannonState
     {
@@ -44,6 +46,7 @@ public class Canon : AbstractInteractableObject
                 orc.animator.SetBool("isWorking", false);
                 canonballCount = 1;
                 cannonState = CannonState.Firing;
+                workProgress = 0;
                 orc.StopHoldingObject(out GameObject holdingObj);
                 Destroy(holdingObj);
                 break;
@@ -89,7 +92,7 @@ public class Canon : AbstractInteractableObject
     // Update is called once per frame
     void Update()
     {
-        if(!readyToFire)
+        if(!readyToFire && cannonState == CannonState.Firing)
         {
             workProgress += workerList.Count * 10 * Time.deltaTime;
             if(workProgress >= 100 ) 
@@ -99,16 +102,19 @@ public class Canon : AbstractInteractableObject
                 workProgress = 0;
             }
         }
-        else
-        {
+
+        if(readyToFire)
             Fire();
-        }
     }
 
     public void Fire()
     {
         readyToFire = false;
-        Debug.Log("BOOOM");
+
+        OnFireParticleSystem.Play();
+        transform.DOPunchScale(Vector3.one * 1.25f, 0.1f);
+        workProgress = 0;
+
         if (canonballCount <= 0)
             cannonState = CannonState.Loading;
     }
