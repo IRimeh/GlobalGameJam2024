@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class Orc : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public ConfigurableJoint hipJoint;
 
     public IEnumerator currentTask;
     public AbstractInteractableObject currentInteractable;
@@ -32,5 +33,10 @@ public class Orc : MonoBehaviour
         StopAllCoroutines();
         if(currentInteractable != null)currentInteractable.OnStopTask(this);
         currentTask = null;
+    }
+
+    private void Update()
+    {
+        hipJoint.targetRotation = Quaternion.Euler(new Vector3(0.0f, -transform.rotation.eulerAngles.y, 0.0f));
     }
 }
