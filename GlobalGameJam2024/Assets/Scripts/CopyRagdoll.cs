@@ -23,6 +23,8 @@ public class CopyRagdoll : MonoBehaviour
 
 	private NavMeshAgent Agent;
 
+	public bool isRagdoll;
+
 	private void Start()
 	{
 		Agent = GetComponent<NavMeshAgent>();
@@ -80,6 +82,8 @@ public class CopyRagdoll : MonoBehaviour
 		RagdollBase.gameObject.SetActive(true);
 
 		Agent.enabled = false;
+
+		isRagdoll = true;
 	}
 
 	[Button]
@@ -127,6 +131,8 @@ public class CopyRagdoll : MonoBehaviour
 			RagdollBase.gameObject.SetActive(false);
 
 			Agent.enabled = true;
+
+			isRagdoll = false;
 
 			return true;
 		}
