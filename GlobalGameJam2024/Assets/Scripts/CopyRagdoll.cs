@@ -11,6 +11,8 @@ public class CopyRagdoll : MonoBehaviour
 	public Transform ModelBase;
 
 	public Transform HipAnchor;
+	private Vector3 HipAnchorPos;
+	private Quaternion HipAnchorRot;
 
 	public float MaxGetUpDistance = 3.0f;
 
@@ -23,8 +25,12 @@ public class CopyRagdoll : MonoBehaviour
 
 	private NavMeshAgent Agent;
 
+	public bool isRagdoll;
+
 	private void Start()
 	{
+		HipAnchorPos = HipAnchor.localPosition;
+		HipAnchorRot = HipAnchor.localRotation;
 		Agent = GetComponent<NavMeshAgent>();
 		Rigidbodies = ModelBase.GetComponentsInChildren<Rigidbody>().ToList<Rigidbody>();
 		for (int i = 0; i < Rigidbodies.Count; i++) { if (Rigidbodies[i].transform == HipAnchor) { Rigidbodies.RemoveAt(i); } }
@@ -80,6 +86,8 @@ public class CopyRagdoll : MonoBehaviour
 		RagdollBase.gameObject.SetActive(true);
 
 		Agent.enabled = false;
+
+		isRagdoll = true;
 	}
 
 	[Button]
@@ -127,6 +135,11 @@ public class CopyRagdoll : MonoBehaviour
 			RagdollBase.gameObject.SetActive(false);
 
 			Agent.enabled = true;
+
+			isRagdoll = false;
+
+			HipAnchor.localPosition = HipAnchorPos;
+			HipAnchor.localRotation = HipAnchorRot;
 
 			return true;
 		}

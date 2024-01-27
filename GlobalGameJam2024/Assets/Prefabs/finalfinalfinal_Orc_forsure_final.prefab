@@ -1411,6 +1411,7 @@ Transform:
   - {fileID: 7263687050408546509}
   - {fileID: 6842938853736928391}
   - {fileID: 3679421760873009977}
+  - {fileID: 7263687049456039968}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1533,6 +1534,7 @@ MonoBehaviour:
   ModelBase: {fileID: 7263687050408546509}
   HipAnchor: {fileID: 0}
   MaxGetUpDistance: 3
+  isRagdoll: 0
 --- !u!114 &7587179531378321919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3490,8 +3492,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7263687050408546509}
-  m_RootOrder: 2
+  m_Father: {fileID: 3228054305703358258}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7263687049456039974
 Rigidbody:
@@ -3563,7 +3565,6 @@ Transform:
   m_Children:
   - {fileID: 6961448491412361126}
   - {fileID: 8406760192585777378}
-  - {fileID: 7263687049456039968}
   m_Father: {fileID: 3228054305703358258}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
