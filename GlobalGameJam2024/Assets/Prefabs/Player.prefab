@@ -232,6 +232,8 @@ GameObject:
   - component: {fileID: 5142602349296929984}
   - component: {fileID: 5142602351210188336}
   - component: {fileID: 1289300291}
+  - component: {fileID: 1929468707}
+  - component: {fileID: 1929468708}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -365,6 +367,49 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   UI: {fileID: 3301401452472867312}
+--- !u!114 &1929468707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5142602349286595716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02580a4f6a60bc4488a4546effd22ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockHitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1929468708}
+        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
+        m_MethodName: Shake
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.75
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1929468708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5142602349286595716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5116e9589f4809c4584180b85513f3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 5142602349286949028}
+  shakeDuration: 0
+  shakeAmount: 1.5
+  decreaseFactor: 1.25
 --- !u!1 &5142602349286595718
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,8 +441,8 @@ Transform:
   m_GameObject: {fileID: 5142602349286595718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.556734, y: 12.71, z: 12.16872}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5142602349286949028}
   m_Father: {fileID: 0}
@@ -1308,7 +1353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1120802159668891491
 RectTransform:
   m_ObjectHideFlags: 0

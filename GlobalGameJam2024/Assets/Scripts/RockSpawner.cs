@@ -9,6 +9,7 @@ public class RockSpawner : MonoBehaviour
     public bool IsControllingShip = true;
     public float Radius = 100.0f;
     public float DespawnRadius = 500.0f;
+    public float InitialSpawnRadius = 500.0f;
 
     public List<GameObject> RockPrefabs = new List<GameObject>();
     public Vector3 MinRotation;
@@ -18,12 +19,16 @@ public class RockSpawner : MonoBehaviour
     public int AmountOfRocks = 20;
     public float RockMoveSpeed = 1.0f;
     public float RotateSpeed = 10.0f;
+    public float RotateAcceleration = 1.0f;
 
     [Header("Ship Swaying")]
     public Transform ShipTransform;
     public Transform SwayTransform;
     public float SwayAmount;
     public float SwaySpeed;
+
+    public Transform Wheel;
+    public float WheelRotationSpeed = 10.0f;
 
     public List<GameObject> Rocks = new List<GameObject>();
 
@@ -32,6 +37,9 @@ public class RockSpawner : MonoBehaviour
     private Quaternion defaultSwayTransformRot;
     private Quaternion defaultCameraRot;
     private bool canStopControllingShip = false;
+
+    private float _currentRotateSpeed = 0.0f;
+    private float _targetRotateSpeed = 0.0f;
 
     void Start()
     {
@@ -45,7 +53,7 @@ public class RockSpawner : MonoBehaviour
     {
         for (int i = 0; i < AmountOfRocks; i++)
         {
-            float range = Random.Range(Radius, DespawnRadius);
+            float range = Random.Range(InitialSpawnRadius, DespawnRadius);
             Vector2 randDir = Random.insideUnitCircle.normalized;
             GameObject rock = Instantiate(RockPrefabs[Random.Range(0, RockPrefabs.Count)],
                                 transform.position + (transform.right * randDir.x * range) + (transform.forward * randDir.y * range),// new Vector3(, 0, randDir.y * range),
@@ -119,15 +127,26 @@ public class RockSpawner : MonoBehaviour
         if (!IsControllingShip)
             return;
 
+
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+            _currentRotateSpeed = Mathf.Lerp(_currentRotateSpeed, 0.0f, Time.deltaTime * RotateAcceleration);
+
+        _targetRotateSpeed = 0.0f;
         if(Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.up * Time.deltaTime * RotateSpeed);
+            transform.Rotate(Vector3.up * Time.deltaTime * _currentRotateSpeed);
+            Wheel.transform.Rotate(Vector3.right, Time.deltaTime * WheelRotationSpeed);
+            _targetRotateSpeed -= RotateSpeed;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(Vector3.up * Time.deltaTime * -RotateSpeed);
+            transform.Rotate(Vector3.up * Time.deltaTime * _currentRotateSpeed);
+            Wheel.transform.Rotate(Vector3.right, Time.deltaTime * WheelRotationSpeed);
+            _targetRotateSpeed += RotateSpeed;
         }
+
+        _currentRotateSpeed = Mathf.Lerp(_currentRotateSpeed, _targetRotateSpeed, Time.deltaTime * RotateAcceleration);
     }
 
     private void ReplaceRocks()

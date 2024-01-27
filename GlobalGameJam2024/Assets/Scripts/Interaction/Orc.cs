@@ -15,6 +15,7 @@ public class Orc : MonoBehaviour
     public Rigidbody rigidBody;
 
     public Animator animator;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,6 +41,5 @@ public class Orc : MonoBehaviour
     private void Update()
     {
         hipJoint.targetRotation = Quaternion.Euler(new Vector3(0.0f, -transform.rotation.eulerAngles.y, 0.0f));
-
     }
 }

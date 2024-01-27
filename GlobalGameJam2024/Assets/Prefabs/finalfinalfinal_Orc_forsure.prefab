@@ -1180,7 +1180,7 @@ PrefabInstance:
     - target: {fileID: 5504992664725593432, guid: 078bfd6c7b9420e4cb44fff6ebbaa09b,
         type: 3}
       propertyPath: m_Name
-      value: pfb_Frogperson_2_animated
+      value: finalfinalfinal_Orc_forsure
       objectReference: {fileID: 0}
     - target: {fileID: 7048784947015405187, guid: 078bfd6c7b9420e4cb44fff6ebbaa09b,
         type: 3}
@@ -1196,6 +1196,27 @@ ConfigurableJoint:
     type: 3}
   m_PrefabInstance: {fileID: 1094356769539188679}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4651707464919882180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5738079486477893123, guid: 078bfd6c7b9420e4cb44fff6ebbaa09b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1094356769539188679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8948569969331332265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4651707464919882180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfce30833a4a23549aac3edf5941aa40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinForce: 250
+  MaxForce: 500
+  rigidBody: {fileID: 7997758791541336388}
 --- !u!1 &4848764942447606431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5504992664725593432, guid: 078bfd6c7b9420e4cb44fff6ebbaa09b,
@@ -1254,6 +1275,12 @@ NavMeshAgent:
 --- !u!4 &5188593906409054245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5129170091940366306, guid: 078bfd6c7b9420e4cb44fff6ebbaa09b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1094356769539188679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7997758791541336388 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7048784947015405187, guid: 078bfd6c7b9420e4cb44fff6ebbaa09b,
     type: 3}
   m_PrefabInstance: {fileID: 1094356769539188679}
   m_PrefabAsset: {fileID: 0}
