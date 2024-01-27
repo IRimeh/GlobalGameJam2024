@@ -10,6 +10,8 @@ public class CopyRagdoll : MonoBehaviour
 	public Transform RagdollBase;
 	public Transform ModelBase;
 
+	private Vector3 RagHipPos;
+
 	public Transform HipAnchor;
 	private Vector3 HipAnchorPos;
 	private Quaternion HipAnchorRot;
@@ -29,6 +31,7 @@ public class CopyRagdoll : MonoBehaviour
 
 	private void Start()
 	{
+		RagHipPos = RagdollBase.GetComponentInChildren<Rigidbody>().transform.localPosition;
 		HipAnchorPos = HipAnchor.localPosition;
 		HipAnchorRot = HipAnchor.localRotation;
 		Agent = GetComponent<NavMeshAgent>();
@@ -80,8 +83,6 @@ public class CopyRagdoll : MonoBehaviour
 		{
 			c.enabled = false;
 		}
-
-		RagdollBase.transform.localPosition = Vector3.zero;
 
 		ModelRenderer.enabled = false;
 
@@ -142,6 +143,17 @@ public class CopyRagdoll : MonoBehaviour
 
 			HipAnchor.localPosition = HipAnchorPos;
 			HipAnchor.localRotation = HipAnchorRot;
+
+			RagdollBase.GetComponentInChildren<Rigidbody>().transform.localPosition = RagHipPos;
+			RagdollBase.localPosition = Vector3.zero;
+
+
+			Transform Hip = ModelBase.GetComponentInChildren<ConfigurableJoint>().transform;
+			Vector3 offset = Vector3.zero - ModelBase.transform.localPosition;
+			ModelBase.transform.localPosition = Vector3.zero;
+			Hip.localPosition = Vector3.zero;
+
+
 
 			return true;
 		}
