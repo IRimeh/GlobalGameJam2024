@@ -7,7 +7,7 @@ public class EventWhenHitRock : MonoBehaviour
 {
     public UnityEvent rockHitEvent;
 
-    void Start()
+    void Awake()
     {
         Rock.OnRockHit += (Rock rock) => { rockHitEvent?.Invoke(); };
     }

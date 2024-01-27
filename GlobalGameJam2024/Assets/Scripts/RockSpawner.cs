@@ -125,12 +125,11 @@ public class RockSpawner : MonoBehaviour
     private void RotateShip()
     {
         transform.Rotate(Vector3.up * Time.deltaTime * _currentRotateSpeed);
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+            _currentRotateSpeed = Mathf.Lerp(_currentRotateSpeed, 0.0f, Time.deltaTime * RotateAcceleration);
 
         if (!IsControllingShip)
             return;
-
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-            _currentRotateSpeed = Mathf.Lerp(_currentRotateSpeed, 0.0f, Time.deltaTime * RotateAcceleration);
 
         _targetRotateSpeed = 0.0f;
         if(Input.GetKey(KeyCode.A))
