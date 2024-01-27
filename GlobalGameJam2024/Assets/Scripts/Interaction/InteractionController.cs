@@ -40,12 +40,17 @@ public class InteractionController : MonoBehaviour
                 }
                 else if (interactable != null)
                 {
-                    if(orcs.Count > 0) {
-                        foreach(Orc orc in orcs) {
-                            if(interactable.IsWorkable())
-                                orc.Work(interactable);
+                    if(orcs.Count > 0) 
+                    {
+                        for (int i = orcs.Count - 1; i >= 0; i--)
+                        {
+                            if (interactable.IsWorkable(orcs[i]))
+                            {
+                                orcs[i].Work(interactable);
+                                orcs.RemoveAt(i);
+                            }
                         }
-                        orcs.Clear();
+                        //orcs.Clear();
                     }
                     
                 }

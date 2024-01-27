@@ -8,5 +8,5 @@ public abstract class AbstractInteractableObject : MonoBehaviour
 
     abstract public void OnStopTask(Orc orc);
 
-    abstract public bool IsWorkable();
+    abstract public bool IsWorkable(Orc orc);
 }

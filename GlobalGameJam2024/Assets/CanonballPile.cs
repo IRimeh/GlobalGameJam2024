@@ -2,17 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanonballPile : MonoBehaviour
+public class CanonballPile : AbstractInteractableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject CannonballPrefab;
+
+    public override bool IsWorkable(Orc orc)
+    {
+        return !orc.isHoldingObj;
+    }
+
+    public override void OnStopTask(Orc orc)
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override IEnumerator Task(Orc orc)
     {
-        
+        orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
+
+        float distance = (transform.position - orc.transform.position).magnitude;
+        while (distance > 2)
+        {
+            distance = (transform.position - orc.transform.position).magnitude;
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        GameObject cannonBall = Instantiate(CannonballPrefab);
+        orc.HoldObject(cannonBall);
+        orc.StopTask();
     }
 }
