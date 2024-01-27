@@ -1631,6 +1631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91584f1fbf0c47e4b8bee1fadb7044d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsControllingShip: 1
   Radius: 500
   DespawnRadius: 600
   RockPrefabs:
@@ -1646,7 +1647,7 @@ MonoBehaviour:
   RotateSpeed: 25
   ShipTransform: {fileID: 149288826}
   SwayTransform: {fileID: 1469060178}
-  SwayAmount: 0.1
+  SwayAmount: 0
   SwaySpeed: 1
   Rocks: []
 --- !u!4 &555624616
