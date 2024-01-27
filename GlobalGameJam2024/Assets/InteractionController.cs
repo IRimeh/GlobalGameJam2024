@@ -28,25 +28,37 @@ public class InteractionController : MonoBehaviour
             {
                 target = hit.point;
 
-                Orc orc = hit.collider.GetComponent<Orc>();
+                Orc hitOrc = hit.collider.GetComponent<Orc>();
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
 
-                if (orc)
+                if (hitOrc)
                 {
-                    if (!orcs.Contains(orc))
+                    if (!orcs.Contains(hitOrc))
                     {
-                        orcs.Add(orc);
+                        orcs.Add(hitOrc);
                     }
                 }
                 else if (interactable)
                 {
-                    orcs[0]?.Work(interactable);
-                    orcs[0]?.animator.SetBool("isWorking", true);
+                    if(orcs.Count > 0) {
+                        foreach(Orc orc in orcs) {
+                            orc.Work(interactable);
+                            orc.animator.SetBool("isWorking", true);
+                        }
+                        orcs.Clear();
+                    }
+                    
                 }
                 else
                 {
-                    orcs[0]?.agent.SetDestination(target);
-                    orcs[0]?.animator.SetBool("isWorking", false);
+                    if (orcs.Count > 0)
+                    {
+                        foreach (Orc orc in orcs)
+                        {
+                            orc.agent.SetDestination(target);
+                            orc.animator.SetBool("isWorking", false);
+                        }
+                    }
                 }
             } 
         }
