@@ -299,12 +299,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -323,20 +323,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &1523446456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822529321259980898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &1285313137359678163 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8657994839363855820, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -439,20 +425,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &6205483760040965834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1285313137359678163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &1302156226273380744 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8926988929875527319, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -572,12 +544,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 3
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 3
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -596,20 +568,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &2851439471301567905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075169429825713823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &2230351574188849696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8575686994528023871, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -728,20 +686,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &893255718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2230351574188849696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!54 &2533293843048343722 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5393386310546319285, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -761,12 +705,12 @@ ConfigurableJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2890805444992688530}
-  m_ConnectedBody: {fileID: 2533293843048343722}
+  m_ConnectedBody: {fileID: 8172292883107581551}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.000000016618287, y: 0.12068978, z: -0.000000014901161}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -826,12 +770,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 3
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 3
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -850,20 +794,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &4824596793209495949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2890805444992688530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &2969037023967412641 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4667165603231583934, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -982,20 +912,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &1054066483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2969037023967412641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &3787193967260677849 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6737360626329778630, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -1098,20 +1014,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &2987772235569796294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3787193967260677849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &3843362818406203124 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6676418277797687787, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -1214,20 +1116,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &299315253172782759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3843362818406203124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &4128587819636602580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5817113246157797835, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -1346,20 +1234,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &1710171534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128587819636602580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!54 &5353417339753079350 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 2574389545221221673, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -1468,20 +1342,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &1007910494838633255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5474581788365193298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &5766434277159684612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4176882489324242203, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -1560,12 +1420,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -1584,20 +1444,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &5467543515794814987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766434277159684612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &6704870148864203153 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3818281667339884174, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -1700,20 +1546,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &6795024702507923036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6704870148864203153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!54 &6848001896425155643 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 3961413278535164708, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -1814,12 +1646,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -1838,20 +1670,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &748974519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7203675328704501982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &7245202942391959898 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 971960180137168453, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -1930,12 +1748,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 3
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 30
+    positionSpring: 3
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -1954,20 +1772,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &4914449861911589648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7245202942391959898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!1 &7288044530639162150 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 924765081541805113, guid: 28f52e2cad722f448bab4850586cb7a0,
@@ -2070,23 +1874,15 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &3302025678555413012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288044530639162150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!54 &7623692189432129752 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 17436834359437255, guid: 28f52e2cad722f448bab4850586cb7a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 7633945593412701983}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8172292883107581551 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1772421566778392944, guid: 28f52e2cad722f448bab4850586cb7a0,
     type: 3}
   m_PrefabInstance: {fileID: 7633945593412701983}
   m_PrefabAsset: {fileID: 0}
@@ -2192,17 +1988,3 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7081866039617537359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8760627714418079677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93eddccac68ab546adaf575150cf41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
