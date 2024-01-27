@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RockSpawner : MonoBehaviour
 {
+    public bool IsControllingShip = true;
     public float Radius = 100.0f;
     public float DespawnRadius = 500.0f;
 
@@ -21,7 +22,6 @@ public class RockSpawner : MonoBehaviour
     public Transform SwayTransform;
     public float SwayAmount;
     public float SwaySpeed;
-
 
     public List<GameObject> Rocks = new List<GameObject>();
 
@@ -47,6 +47,7 @@ public class RockSpawner : MonoBehaviour
                                 Quaternion.Euler(Random.Range(MinRotation.x, MaxRotation.x), Random.Range(MinRotation.y, MaxRotation.y), Random.Range(MinRotation.z, MaxRotation.z)),
                                 transform);
             Rocks.Add(rock);
+            rock.GetComponent<Rock>().RockSpawner = this;
         }
     }
 
@@ -76,6 +77,9 @@ public class RockSpawner : MonoBehaviour
 
     private void RotateShip()
     {
+        if (!IsControllingShip)
+            return;
+
         if(Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.up * Time.deltaTime * RotateSpeed);
@@ -99,6 +103,14 @@ public class RockSpawner : MonoBehaviour
                 rock.transform.rotation = Quaternion.Euler(Random.Range(MinRotation.x, MaxRotation.x), Random.Range(MinRotation.y, MaxRotation.y), Random.Range(MinRotation.z, MaxRotation.z));
             }
         }
+    }
+
+    public void ReplaceRock(Rock rock)
+    {
+        float range = Random.Range(Radius, DespawnRadius);
+        Vector2 randDir = Random.insideUnitCircle.normalized;
+        rock.transform.position = transform.position + new Vector3(randDir.x * range, 0, randDir.y * range);
+        rock.transform.rotation = Quaternion.Euler(Random.Range(MinRotation.x, MaxRotation.x), Random.Range(MinRotation.y, MaxRotation.y), Random.Range(MinRotation.z, MaxRotation.z));
     }
 
 
