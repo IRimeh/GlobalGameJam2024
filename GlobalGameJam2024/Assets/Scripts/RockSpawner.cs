@@ -30,10 +30,12 @@ public class RockSpawner : MonoBehaviour
     private Vector3 moveDir;
     private Vector3 playerOffset;
     private Quaternion defaultSwayTransformRot;
+    private Quaternion defaultCameraRot;
 
     void Start()
     {
         defaultSwayTransformRot = SwayTransform.rotation;
+        defaultCameraRot = ShipCamera.transform.rotation;
         moveDir = transform.forward;
         SpawnInitialRocks();
     }
@@ -62,6 +64,7 @@ public class RockSpawner : MonoBehaviour
         MoveRocks();
         ReplaceRocks();
         SwayShip();
+        SwayCamera();
     }
 
     public void ControlShip(bool doControl)
@@ -74,7 +77,15 @@ public class RockSpawner : MonoBehaviour
 
     private void SwayShip()
     {
-        SwayTransform.rotation = Quaternion.Euler(defaultSwayTransformRot.eulerAngles.x, defaultSwayTransformRot.eulerAngles.y, Mathf.Sin(Time.time * SwaySpeed) * SwayAmount);
+        //SwayTransform.rotation = Quaternion.Euler(defaultSwayTransformRot.eulerAngles.x, defaultSwayTransformRot.eulerAngles.y, Mathf.Sin(Time.time * SwaySpeed) * SwayAmount);
+    }
+
+    private void SwayCamera()
+    {
+        if(IsControllingShip)
+        {
+            ShipCamera.transform.rotation = Quaternion.Euler(defaultCameraRot.eulerAngles.x, defaultCameraRot.eulerAngles.y, Mathf.Sin(Time.time * SwaySpeed) * SwayAmount);
+        }
     }
 
     private void MoveRocks()
