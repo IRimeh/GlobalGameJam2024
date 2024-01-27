@@ -16,13 +16,22 @@ public class RockSpawner : MonoBehaviour
     public float RockMoveSpeed = 1.0f;
     public float RotateSpeed = 10.0f;
 
+    [Header("Ship Swaying")]
+    public Transform ShipTransform;
+    public Transform SwayTransform;
+    public float SwayAmount;
+    public float SwaySpeed;
+
+
     public List<GameObject> Rocks = new List<GameObject>();
 
     private Vector3 moveDir;
     private Vector3 playerOffset;
+    private Quaternion defaultSwayTransformRot;
 
     void Start()
     {
+        defaultSwayTransformRot = SwayTransform.rotation;
         moveDir = transform.forward;
         SpawnInitialRocks();
     }
@@ -34,7 +43,7 @@ public class RockSpawner : MonoBehaviour
             float range = Random.Range(Radius, DespawnRadius);
             Vector2 randDir = Random.insideUnitCircle.normalized;
             GameObject rock = Instantiate(RockPrefabs[Random.Range(0, RockPrefabs.Count)],
-                                transform.position + new Vector3(randDir.x * range, 0, randDir.y * range),
+                                transform.position + (transform.right * randDir.x * range) + (transform.forward * randDir.y * range),// new Vector3(, 0, randDir.y * range),
                                 Quaternion.Euler(Random.Range(MinRotation.x, MaxRotation.x), Random.Range(MinRotation.y, MaxRotation.y), Random.Range(MinRotation.z, MaxRotation.z)),
                                 transform);
             Rocks.Add(rock);
@@ -46,6 +55,12 @@ public class RockSpawner : MonoBehaviour
         RotateShip();
         MoveRocks();
         ReplaceRocks();
+        SwayShip();
+    }
+
+    private void SwayShip()
+    {
+        SwayTransform.rotation = Quaternion.Euler(defaultSwayTransformRot.eulerAngles.x, defaultSwayTransformRot.eulerAngles.y, Mathf.Sin(Time.time * SwaySpeed) * SwayAmount);
     }
 
     private void MoveRocks()

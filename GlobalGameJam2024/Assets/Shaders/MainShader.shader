@@ -99,7 +99,7 @@ Shader "Unlit/MasterShader"
                 baseMap.rgb = lerp(baseMap.rgb, _FresnelColor, rimLight);
 
                 // Shadows
-                baseMap.rgb = lerp(baseMap.rgb * 0.2f, baseMap.rgb, light.shadowAttenuation);
+                baseMap.rgb = lerp(baseMap.rgb * 0.5f, baseMap.rgb, light.shadowAttenuation);
 
                 return baseMap;
             }
