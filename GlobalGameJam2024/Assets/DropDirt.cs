@@ -40,7 +40,7 @@ public class DropDirt : MonoBehaviour
 			//Fluff can be removed
 			Sequence mySec = DOTween.Sequence();
 			mySec.Append(Dirt.transform.DOScaleX(1.0f, engangeTime));
-			mySec.Join(Dirt.transform.DOScaleY(0.1f, engangeTime));
+			mySec.Join(Dirt.transform.DOScaleY(1.0f, engangeTime));
 			mySec.Join(Dirt.transform.DOScaleZ(1.0f, engangeTime));
 			mySec.AppendCallback(() =>EngangeDirt(Dirt));
 			mySec.Play();
