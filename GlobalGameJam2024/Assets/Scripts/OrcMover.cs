@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class OrcMover : MonoBehaviour
 {
 	public ConfigurableJoint hipjoint;
+	public Transform AnimationBase;
 
 	private NavMeshAgent agent;
 
