@@ -24,23 +24,23 @@ public class InteractionController : MonoBehaviour
             RaycastHit hit;
             Ray ray = new Ray(Camera.transform.position, Camera.transform.forward);
 
-            Physics.Raycast(ray, out hit);
-
-            target = hit.point;
-
-            
-            if (hit.collider.GetComponent<Interactable>() != null) {
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-                orc.Work(interactable);
-                orc.animator.SetBool("isWorking", true);
-            }
-            else
+            if(Physics.Raycast(ray, out hit))
             {
-                orc.agent.SetDestination(target);
-                orc.animator.SetBool("isWorking", false);
-            }
+                target = hit.point;
 
-            
+
+                if (hit.collider.GetComponent<Interactable>() != null)
+                {
+                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+                    orc.Work(interactable);
+                    orc.animator.SetBool("isWorking", true);
+                }
+                else
+                {
+                    orc.agent.SetDestination(target);
+                    orc.animator.SetBool("isWorking", false);
+                }
+            } 
         }
         else
         {
