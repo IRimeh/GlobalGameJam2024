@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -37,7 +38,7 @@ public class Orc : MonoBehaviour
     public void StopTask()
     {
         StopAllCoroutines();
-        if(currentInteractable != null)currentInteractable.OnStopTask(this);
+        if(currentInteractable != null) currentInteractable.OnStopTask(this);
         currentTask = null;
     }
 
@@ -65,5 +66,14 @@ public class Orc : MonoBehaviour
     public void UnRagdoll()
     {
         CopyRagdoll.EnableCharacter();
+    }
+
+    private void OnDrawGizmos()
+    {
+        if(currentTask != null)
+        {
+            Gizmos.color = new Color(0, 0.0f, 1.0f, 0.6f);
+            Gizmos.DrawSphere(transform.position + Vector3.up * 1.0f, 0.3f);
+        }
     }
 }

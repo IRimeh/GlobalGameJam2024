@@ -5,7 +5,7 @@ using UnityEngine;
 public class Canon : AbstractInteractableObject
 {
     float workProgress = 0;
-    int canonballCount = 3;
+    int canonballCount = 1;
     List<Orc> workerList = new List<Orc>();
 
     bool readyToFire = false;
@@ -17,7 +17,8 @@ public class Canon : AbstractInteractableObject
     {
         orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
         workerList.Add(orc);
-        while (!readyToFire)
+
+        while (!readyToFire && canonballCount > 0)
         {
             float distance = (transform.position - orc.transform.position).magnitude;
 
@@ -33,12 +34,24 @@ public class Canon : AbstractInteractableObject
             yield return new WaitForSeconds(1f);
         }
 
+        ClearWorkerList();
+    }
+
+    private void ClearWorkerList()
+    {
+        foreach (Orc orc in workerList)
+        {
+            orc.animator.SetBool("isWorking", false);
+            orc.StopTask();
+        }
         workerList.Clear();
     }
 
     override public void OnStopTask(Orc orc)
     {
-        workerList.Remove(orc);
+        if(workerList.Contains(orc))
+            workerList.Remove(orc);
+        orc.animator.SetBool("isWorking", false);
     }
 
     // Update is called once per frame
@@ -56,17 +69,14 @@ public class Canon : AbstractInteractableObject
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Fire();
-            }
+            Fire();
         }
-        
     }
 
     public void Fire()
     {
         readyToFire = false;
+        Debug.Log("BOOOM");
     }
 
     public override bool IsWorkable()
