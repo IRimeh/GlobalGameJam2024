@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RockSpawner : MonoBehaviour
 {
+    public GameObject Player;
+    public Camera ShipCamera;
     public bool IsControllingShip = true;
     public float Radius = 100.0f;
     public float DespawnRadius = 500.0f;
@@ -53,10 +55,21 @@ public class RockSpawner : MonoBehaviour
 
     void Update()
     {
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F)) && IsControllingShip)
+            ControlShip(false);
+
         RotateShip();
         MoveRocks();
         ReplaceRocks();
         SwayShip();
+    }
+
+    public void ControlShip(bool doControl)
+    {
+        IsControllingShip = doControl;
+
+        ShipCamera.gameObject.SetActive(doControl);
+        Player.gameObject.SetActive(!doControl);
     }
 
     private void SwayShip()
