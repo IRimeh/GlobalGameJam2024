@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac55eb45a2c5f1428656ab4b9aa7e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
+  Camera: {fileID: 5142602349286949028}
   leftArmAnim: {fileID: 5142602350442443098}
   rightArmAnim: {fileID: 5142602349486055091}
   orcs: []
