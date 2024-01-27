@@ -6992,6 +6992,7 @@ MonoBehaviour:
   AmountOfRocks: 55
   RockMoveSpeed: 30
   RotateSpeed: 15
+  RotateAcceleration: 0.5
   ShipTransform: {fileID: 149288826}
   SwayTransform: {fileID: 1469060178}
   SwayAmount: 5
