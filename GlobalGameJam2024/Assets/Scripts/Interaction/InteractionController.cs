@@ -55,8 +55,11 @@ public class InteractionController : MonoBehaviour
                     {
                         foreach (Orc orc in orcs)
                         {
-                            orc.agent.SetDestination(target);
-                            orc.animator.SetBool("isWorking", false);
+                            if (orc.agent.enabled)
+                            {
+                                orc.agent.SetDestination(target);
+                                orc.animator.SetBool("isWorking", false);
+                            }
                         }
                     }
                 }
