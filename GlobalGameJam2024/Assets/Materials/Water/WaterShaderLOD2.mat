@@ -39,7 +39,7 @@ Material:
     - _DetailWaveSize: 8
     - _EnvStrength: 0.75
     - _Gloss: 0.679
-    - _MaxDepth: 0.037
+    - _MaxDepth: 0.144
     - _NormalStrength: 1.033
     - _Scale: 16
     - _ShadowStrength: 0.5

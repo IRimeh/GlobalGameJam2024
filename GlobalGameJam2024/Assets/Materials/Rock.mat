@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MainShader
+  m_Name: Rock
   m_Shader: {fileID: 4800000, guid: 9d0d880f61c251c4a9c4531f1669de7c, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -23,7 +23,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 0a0e8af2869fa45f78e25460db578482, type: 3}
+        m_Texture: {fileID: 2800000, guid: 43ddf3e3bfce28c4c8182879e9e7bba4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMap:
@@ -69,7 +69,7 @@ Material:
     - _BlendMode: 0
     - _CutOff: 0
     - _Cutoff: 1
-    - _FresnelPow: 3
+    - _FresnelPow: 6
     - _Glossiness: 8
     - _HideTime: 0
     - _IndicatorEndFade: 15
@@ -118,13 +118,13 @@ Material:
     - _UseNormalMap: 0
     - _UseRimLighting: 0
     m_Colors:
-    - _BaseColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CustomNormalDirection: {r: 0, g: 0, b: 1, a: 0}
     - _DetailColorB: {r: 0, g: 0, b: 0, a: 0}
     - _DetailColorG: {r: 0, g: 0, b: 0, a: 0}
     - _DetailColorR: {r: 1, g: 1, b: 1, a: 1}
-    - _FresnelColor: {r: 3.9533494, g: 3.787764, b: 3.2082155, a: 1}
+    - _FresnelColor: {r: 3.6846638, g: 3.5300794, b: 1.9987563, a: 1}
     - _IndicatorColor: {r: 0, g: 0, b: 0, a: 0.686}
     - _RainColor: {r: 1, g: 1, b: 1, a: 1}
     - _STNoiseTiling: {r: 0.5, g: 0.5, b: 1, a: 1}
