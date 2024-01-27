@@ -31,6 +31,7 @@ public class RockSpawner : MonoBehaviour
     private Vector3 playerOffset;
     private Quaternion defaultSwayTransformRot;
     private Quaternion defaultCameraRot;
+    private bool canStopControllingShip = false;
 
     void Start()
     {
@@ -57,8 +58,11 @@ public class RockSpawner : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F)) && IsControllingShip)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F)) && IsControllingShip && canStopControllingShip)
+        {
             ControlShip(false);
+            canStopControllingShip = false;
+        }
 
         RotateShip();
         MoveRocks();
@@ -69,10 +73,21 @@ public class RockSpawner : MonoBehaviour
 
     public void ControlShip(bool doControl)
     {
+        canStopControllingShip = false;
         IsControllingShip = doControl;
 
         ShipCamera.gameObject.SetActive(doControl);
         Player.gameObject.SetActive(!doControl);
+
+        if(doControl)
+        {
+            StartCoroutine(SetCanStopControlling());
+            IEnumerator SetCanStopControlling()
+            {
+                yield return new WaitForSeconds(0.1f);
+                canStopControllingShip = true;
+            }
+        }
     }
 
     private void SwayShip()
