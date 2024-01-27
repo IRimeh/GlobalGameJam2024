@@ -17,7 +17,7 @@ public class Orc : MonoBehaviour
     public Animator animator;
 
     public List<GameObject> ToDisableForRagdoll = new List<GameObject>();
-    public GameObject RagdollObj;
+    public CopyRagdoll CopyRagdoll;
 
     // Start is called before the first frame update
     void Awake()
@@ -59,21 +59,11 @@ public class Orc : MonoBehaviour
 
     public void Ragdoll()
     {
-        agent.enabled = false;
-        foreach (GameObject obj in ToDisableForRagdoll)
-        {
-            obj.SetActive(false);
-        }
-        RagdollObj.SetActive(true);
+        CopyRagdoll.EnableRagdoll();
     }
 
     public void UnRagdoll()
     {
-        agent.enabled = true;
-        foreach (GameObject obj in ToDisableForRagdoll)
-        {
-            obj.SetActive(true);
-        }
-        RagdollObj.SetActive(false);
+        CopyRagdoll.EnableCharacter();
     }
 }
