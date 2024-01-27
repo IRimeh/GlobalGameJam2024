@@ -81,6 +81,8 @@ public class CopyRagdoll : MonoBehaviour
 			c.enabled = false;
 		}
 
+		RagdollBase.transform.localPosition = Vector3.zero;
+
 		ModelRenderer.enabled = false;
 
 		RagdollBase.gameObject.SetActive(true);

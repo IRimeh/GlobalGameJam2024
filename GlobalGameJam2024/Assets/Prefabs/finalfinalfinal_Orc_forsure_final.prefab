@@ -1389,6 +1389,7 @@ GameObject:
   - component: {fileID: 7263687050897575683}
   - component: {fileID: 7587179531378321919}
   - component: {fileID: 4427823077517298360}
+  - component: {fileID: 6466893372288311139}
   m_Layer: 0
   m_Name: finalfinalfinal_Orc_forsure_final
   m_TagString: Untagged
@@ -1403,7 +1404,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2848398006119445896}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.66669464, y: -5.6353683, z: 8.234711}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -1532,7 +1533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RagdollBase: {fileID: 3679421760873009977}
   ModelBase: {fileID: 7263687050408546509}
-  HipAnchor: {fileID: 0}
+  HipAnchor: {fileID: 7263687049456039968}
   MaxGetUpDistance: 3
   isRagdoll: 0
 --- !u!114 &7587179531378321919
@@ -1577,6 +1578,22 @@ MonoBehaviour:
   MinForce: 150
   MaxForce: 250
   rigidBody: {fileID: 2209295224483478246}
+--- !u!114 &6466893372288311139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848398006119445896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dcd8b8b81e36c4486f30191aae9aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDropTime: 1
+  maxDropTime: 2
+  DirtPrefab: {fileID: 6990740340728766461, guid: 5120632f682dff742b69e8d273543e03,
+    type: 3}
 --- !u!1 &2979625175160081055
 GameObject:
   m_ObjectHideFlags: 0
@@ -4418,7 +4435,7 @@ PrefabInstance:
     - target: {fileID: 6323654741160625861, guid: f5856abbbcd8d524f9c65b5b40996f65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.118
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6323654741160625861, guid: f5856abbbcd8d524f9c65b5b40996f65,
         type: 3}
