@@ -1516,6 +1516,7 @@ MonoBehaviour:
   currentInteractable: {fileID: 0}
   hipJoint: {fileID: 7773814716758085117}
   rigidBody: {fileID: 734214129691059795}
+  ragdollRigidBody: {fileID: 2209295224483478246}
   animator: {fileID: 0}
   ToDisableForRagdoll: []
   CopyRagdoll: {fileID: 7263687050897575683}
@@ -1575,8 +1576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfce30833a4a23549aac3edf5941aa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinForce: 150
-  MaxForce: 250
+  MinForce: 50
+  MaxForce: 100
   rigidBody: {fileID: 2209295224483478246}
 --- !u!114 &6466893372288311139
 MonoBehaviour:
