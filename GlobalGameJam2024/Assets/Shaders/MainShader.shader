@@ -106,46 +106,46 @@ Shader "Unlit/MasterShader"
             ENDHLSL
         }
 
-        //Pass
-        //{
-        //    Name "ShadowCaster"
-        //    Tags { "LightMode" = "ShadowCaster" }
+        Pass
+        {
+            Name "ShadowCaster"
+            Tags { "LightMode" = "ShadowCaster" }
 
-        //    ZWrite On
-        //    ZTest LEqual
-        //    Cull Back
+            ZWrite On
+            ZTest LEqual
+            Cull Back
 
-        //    HLSLPROGRAM
-        //    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-        //    CBUFFER_START(UnityPerMaterial)
-        //    float4 _BaseMap_ST;
-        //    float4 _BaseColor;
-        //    float _Cutoff;
-        //    CBUFFER_END
+            HLSLPROGRAM
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            CBUFFER_START(UnityPerMaterial)
+            float4 _BaseMap_ST;
+            float4 _BaseColor;
+            float _Cutoff;
+            CBUFFER_END
 
-        //    // Required to compile gles 2.0 with standard srp library
-        //    #pragma prefer_hlslcc gles
-        //    #pragma exclude_renderers d3d11_9x gles
-        //    //#pragma target 4.5
+            // Required to compile gles 2.0 with standard srp library
+            #pragma prefer_hlslcc gles
+            #pragma exclude_renderers d3d11_9x gles
+            //#pragma target 4.5
 
-        //    // Material Keywords
-        //    #pragma shader_feature _ALPHATEST_ON
-        //    #pragma shader_feature _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+            // Material Keywords
+            #pragma shader_feature _ALPHATEST_ON
+            #pragma shader_feature _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
 
-        //    // GPU Instancing 
-        //    #pragma multi_compile_instancing
-        //    #pragma multi_compile _ DOTS_INSTANCING_ON
+            // GPU Instancing 
+            #pragma multi_compile_instancing
+            #pragma multi_compile _ DOTS_INSTANCING_ON
 
-        //    //#pragma vertex vert
-        //    #pragma vertex ShadowPassVertex
-        //    #pragma fragment ShadowPassFragment
+            //#pragma vertex vert
+            #pragma vertex ShadowPassVertex
+            #pragma fragment ShadowPassFragment
 
-        //    #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonMaterial.hlsl"
-        //    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl"
-        //    #include "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonMaterial.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl"
 
-        //    ENDHLSL
-        //}
+            ENDHLSL
+        }
 
         UsePass "Universal Render Pipeline/Lit/DepthOnly"
     }
