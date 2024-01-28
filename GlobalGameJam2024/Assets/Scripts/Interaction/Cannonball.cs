@@ -10,6 +10,7 @@ public class Cannonball : MonoBehaviour
     public LayerMask layerMask;
     public ParticleSystem explosionParticle;
     public MeshRenderer meshRenderer;
+    public TrailRenderer trailRenderer;
     public Collider coll;
 
     private bool hitShip = false;
@@ -34,6 +35,7 @@ public class Cannonball : MonoBehaviour
                 explosionParticle.Play();
                 meshRenderer.enabled = false;
                 coll.enabled = false;
+                trailRenderer.enabled = false;
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ShipGetShot", transform.position);
 
                 if(other.TryGetComponent<EnemyShip>(out EnemyShip enemyShip))

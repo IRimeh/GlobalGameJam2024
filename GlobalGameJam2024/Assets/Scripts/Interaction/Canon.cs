@@ -104,7 +104,7 @@ public class Canon : AbstractInteractableObject
             Fire();
     }
 
-    public void Fire()
+    public void Fire(bool variance = false)
     {
         readyToFire = false;
 
@@ -113,7 +113,8 @@ public class Canon : AbstractInteractableObject
         transform.DOPunchScale(Vector3.one * 1.25f, 0.1f);
         workProgress = 0;
 
-        var cannonBall = Instantiate(CannonBallPrefab, CannonBallSpawnTransform.position, CannonBallSpawnTransform.rotation, CannonBallSpawnParent);
+        Quaternion rot = CannonBallSpawnTransform.rotation;
+        var cannonBall = Instantiate(CannonBallPrefab, CannonBallSpawnTransform.position, rot, CannonBallSpawnParent);
     }
 
     public override bool IsWorkable(Orc orc)
