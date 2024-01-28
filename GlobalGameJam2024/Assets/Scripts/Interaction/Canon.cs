@@ -14,6 +14,9 @@ public class Canon : AbstractInteractableObject
 
     public int MaxOrcs = 3;
     public ParticleSystem OnFireParticleSystem;
+    public GameObject CannonBallPrefab;
+    public Transform CannonBallSpawnTransform;
+    public Transform CannonBallSpawnParent;
 
 
     override public IEnumerator Task(Orc orc)
@@ -109,6 +112,8 @@ public class Canon : AbstractInteractableObject
         OnFireParticleSystem.Play();
         transform.DOPunchScale(Vector3.one * 1.25f, 0.1f);
         workProgress = 0;
+
+        var cannonBall = Instantiate(CannonBallPrefab, CannonBallSpawnTransform.position, CannonBallSpawnTransform.rotation, CannonBallSpawnParent);
     }
 
     public override bool IsWorkable(Orc orc)

@@ -23,7 +23,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 43ddf3e3bfce28c4c8182879e9e7bba4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 293fe09aabe92ed46b29b24e707b3936, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BlueNoise:
@@ -75,7 +75,7 @@ Material:
     - _Cutoff: 1
     - _DitherMaxDist: 750
     - _DitherMinDist: 750
-    - _FresnelPow: 6
+    - _FresnelPow: 16
     - _Glossiness: 8
     - _HideTime: 0
     - _IndicatorEndFade: 15

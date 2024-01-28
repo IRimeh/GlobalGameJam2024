@@ -13,12 +13,6 @@ Shader "Unlit/ShipShader"
             Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
             LOD 100
 
-            Stencil{
-                Ref 1
-                Pass Replace
-                Comp Always
-            }
-
             Pass
             {
 
