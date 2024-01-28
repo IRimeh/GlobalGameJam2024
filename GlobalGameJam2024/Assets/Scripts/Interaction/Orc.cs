@@ -83,8 +83,8 @@ public class Orc : MonoBehaviour
     public void HoldObject(GameObject gameObject)
     {
         isHoldingObj = true;
-        gameObject.transform.SetParent(transform);
-        gameObject.transform.localPosition = Vector3.up * 1.0f;
+        gameObject.transform.SetParent(this.GetComponent<GrabPoit>().Hand);
+        gameObject.transform.localPosition = Vector3.zero;
         HoldingObj = gameObject;
     }
 

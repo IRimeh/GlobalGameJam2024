@@ -11761,12 +11761,6 @@ PrefabInstance:
       objectReference: {fileID: 1840664969}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4bc79563497ee14f9f4754e7c71d32b, type: 3}
---- !u!4 &1447964154 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7263687049456039968, guid: e4bc79563497ee14f9f4754e7c71d32b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7263687050692433370}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1461377352
 GameObject:
   m_ObjectHideFlags: 0
@@ -17480,20 +17474,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3679421760873009977, guid: e4bc79563497ee14f9f4754e7c71d32b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7263687050408546508, guid: e4bc79563497ee14f9f4754e7c71d32b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7263687050897575683, guid: e4bc79563497ee14f9f4754e7c71d32b,
-        type: 3}
-      propertyPath: HipAnchor
-      value: 
-      objectReference: {fileID: 1447964154}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4bc79563497ee14f9f4754e7c71d32b, type: 3}

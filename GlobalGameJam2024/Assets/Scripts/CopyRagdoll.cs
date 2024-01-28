@@ -153,8 +153,6 @@ public class CopyRagdoll : MonoBehaviour
 			ModelBase.transform.localPosition = Vector3.zero;
 			Hip.localPosition = Vector3.zero;
 
-
-
 			return true;
 		}
 
