@@ -12,10 +12,16 @@ public class InteractionController : MonoBehaviour
 
     [SerializeField]
     List<Orc> orcs;
+    List<Orc> recentlySelectedOrcs = new List<Orc>(); //Cant be selected again with the same command
 
     private void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0))
+        {
+            recentlySelectedOrcs.Clear();
+        }
+
+
         if (Input.GetMouseButton(0))//Select orc
         {
             leftArmAnim.SetBool("isPointing", true);
@@ -34,8 +40,9 @@ public class InteractionController : MonoBehaviour
 
                 if (hitOrc)
                 {
-                    if (!orcs.Contains(hitOrc))
+                    if (!orcs.Contains(hitOrc) && !recentlySelectedOrcs.Contains(hitOrc))
                     {
+                        recentlySelectedOrcs.Add(hitOrc);
                         orcs.Add(hitOrc);
                         FMODUnity.RuntimeManager.PlayOneShot("event:/Voice/PeonWhat", hitOrc.transform.position);
                         hitOrc.StopTask();
