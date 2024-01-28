@@ -61,7 +61,7 @@ public class Orc : MonoBehaviour
     {
         hipJoint.targetRotation = Quaternion.Euler(new Vector3(0.0f, -transform.rotation.eulerAngles.y, 0.0f));
 
-        if(currentTask == null && !IsRagdolling)
+        if(currentTask == null && !IsRagdolling && agent.isOnNavMesh)
         {
             _wanderTimer += Time.deltaTime;
             if(_wanderTimer > _neededWanderTime)
@@ -94,6 +94,11 @@ public class Orc : MonoBehaviour
                 yield return null;
 
             UnRagdoll();
+            
+            while(!agent.isOnNavMesh)
+            {
+                yield return null;
+            }
             agent.destination = dest;
         }
     }
