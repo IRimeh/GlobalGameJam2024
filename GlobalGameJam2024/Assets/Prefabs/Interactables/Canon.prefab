@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2323752252123422895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 689803382307391744}
+  m_Layer: 0
+  m_Name: CannonballSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &689803382307391744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2323752252123422895}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0, y: 0.599, z: -2.193}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8455815108216082639}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &8455815108216082634
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +64,7 @@ Transform:
   - {fileID: 6581967823975403566}
   - {fileID: 1117032140410318245}
   - {fileID: 5902105860280806701}
+  - {fileID: 689803382307391744}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64,6 +96,10 @@ MonoBehaviour:
   cannonballCount: 0
   MaxOrcs: 3
   OnFireParticleSystem: {fileID: 3756279548164418892}
+  CannonBallPrefab: {fileID: 306347313111835773, guid: 22b24118a7eac834fa556d4d0cc3fda9,
+    type: 3}
+  CannonBallSpawnTransform: {fileID: 689803382307391744}
+  CannonBallSpawnParent: {fileID: 0}
 --- !u!1001 &5624804186674783673
 PrefabInstance:
   m_ObjectHideFlags: 0
