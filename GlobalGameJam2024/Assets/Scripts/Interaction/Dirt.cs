@@ -30,6 +30,8 @@ public class Dirt : AbstractInteractableObject
         float distance = (transform.position - orc.transform.position).magnitude;
         while (distance > 2)
         {
+            if (this == null)
+                yield break;
             distance = (transform.position - orc.transform.position).magnitude;
             yield return new WaitForSeconds(0.1f);
         }
@@ -38,6 +40,8 @@ public class Dirt : AbstractInteractableObject
 
         while(!isCleaned)
         {
+            if (this == null)
+                yield break;
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -53,8 +57,8 @@ public class Dirt : AbstractInteractableObject
             for (int i = orcsCleaning.Count - 1; i >= 0; i--)
             {
                 orcsCleaning[i].StopTask();
-                orcsCleaning.RemoveAt(i);
             }
+            StopAllCoroutines();
             Destroy(ObjToDestroyWhenClean);
         }
     }
