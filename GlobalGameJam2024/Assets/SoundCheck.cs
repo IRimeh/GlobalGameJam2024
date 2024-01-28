@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class SoundCheck : MonoBehaviour
 {
+    public bool enableGUI = true;
     bool showMenu = false;
 
     FMOD.Studio.VCA musicVCA;
@@ -73,6 +74,7 @@ public class SoundCheck : MonoBehaviour
 
     private void OnGUI()
     {
+        if (!enableGUI) return;
         if (!showMenu)
         {
             if(GUI.Button(new Rect(5, 5, 64, 16),"Menu"))
