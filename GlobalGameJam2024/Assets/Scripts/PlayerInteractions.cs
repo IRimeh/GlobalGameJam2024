@@ -22,7 +22,7 @@ public class PlayerInteractions : MonoBehaviour
         if (!hitInteractable)
             return;
 
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
         {
             interactable.Interact();
         }
