@@ -15,10 +15,16 @@ public class GameOverScript : MonoBehaviour
 
 	public AliveTime time;
 
+	public List<GameObject> ThingstOas= new List<GameObject>();
+
 	private void Start()
 	{
 		Text.gameObject.SetActive(false);
 		Score.gameObject.SetActive(false);
+		foreach (var item in ThingstOas)
+		{
+			item.SetActive(false);
+		}
 	}
 
 	public void StartGameOver() {
@@ -26,7 +32,11 @@ public class GameOverScript : MonoBehaviour
 		{
 			Text.gameObject.SetActive(true);
 			Score.gameObject.SetActive(true);
-			ReturnToMenuTime = Time.time + GmaeOverShowTime;
+            foreach (var item in ThingstOas)
+            {
+                item.SetActive(true);
+            }
+            ReturnToMenuTime = Time.time + GmaeOverShowTime;
 			PlayerPrefs.SetInt("Highscore", Mathf.Max(time.GetAliveTime(), PlayerPrefs.GetInt("Highscore")));
 			Score.text = "Score: " + FindObjectOfType<AliveTime>().GetAliveTime() + " Seconds";
 		}

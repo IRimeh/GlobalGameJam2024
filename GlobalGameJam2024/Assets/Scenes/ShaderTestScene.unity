@@ -270,6 +270,12 @@ Transform:
   m_Father: {fileID: 543450652522663576}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &99775951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6102000464127704255, guid: 0302ad829e37cda4c8243585e0559659,
+    type: 3}
+  m_PrefabInstance: {fileID: 1250554408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &116723674
 GameObject:
   m_ObjectHideFlags: 0
@@ -26678,11 +26684,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: gameOVerCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1359460557657550533, guid: 0302ad829e37cda4c8243585e0559659,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1359460557657550537, guid: 0302ad829e37cda4c8243585e0559659,
         type: 3}
       propertyPath: m_Pivot.x
@@ -26788,41 +26789,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1359460559084463932, guid: 0302ad829e37cda4c8243585e0559659,
+    - target: {fileID: 8708775991656806646, guid: 0302ad829e37cda4c8243585e0559659,
         type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 939.4
+      propertyPath: ThingstOas.Array.size
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1359460559084463935, guid: 0302ad829e37cda4c8243585e0559659,
+    - target: {fileID: 8708775991656806646, guid: 0302ad829e37cda4c8243585e0559659,
         type: 3}
-      propertyPath: m_fontSize
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1359460559084463935, guid: 0302ad829e37cda4c8243585e0559659,
+      propertyPath: ThingstOas.Array.data[0]
+      value: 
+      objectReference: {fileID: 1463353591}
+    - target: {fileID: 8708775991656806646, guid: 0302ad829e37cda4c8243585e0559659,
         type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.33273804
-      objectReference: {fileID: 0}
-    - target: {fileID: 1359460559084463935, guid: 0302ad829e37cda4c8243585e0559659,
+      propertyPath: ThingstOas.Array.data[1]
+      value: 
+      objectReference: {fileID: 1815111006}
+    - target: {fileID: 8708775991656806646, guid: 0302ad829e37cda4c8243585e0559659,
         type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.11534355
-      objectReference: {fileID: 0}
-    - target: {fileID: 1359460559084463935, guid: 0302ad829e37cda4c8243585e0559659,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.9056604
-      objectReference: {fileID: 0}
-    - target: {fileID: 1359460559084463935, guid: 0302ad829e37cda4c8243585e0559659,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1359460559084463935, guid: 0302ad829e37cda4c8243585e0559659,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4283768295
-      objectReference: {fileID: 0}
+      propertyPath: ThingstOas.Array.data[2]
+      value: 
+      objectReference: {fileID: 99775951}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0302ad829e37cda4c8243585e0559659, type: 3}
 --- !u!1 &1274922529
@@ -27285,6 +27271,12 @@ PrefabInstance:
       objectReference: {fileID: 1840664969}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4bc79563497ee14f9f4754e7c71d32b, type: 3}
+--- !u!1 &1463353591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8470805766343759467, guid: 0302ad829e37cda4c8243585e0559659,
+    type: 3}
+  m_PrefabInstance: {fileID: 1250554408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1468494767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3228054305703358258, guid: e4bc79563497ee14f9f4754e7c71d32b,
@@ -27863,6 +27855,12 @@ Transform:
   m_Father: {fileID: 1202884529}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1815111006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7858064884063923384, guid: 0302ad829e37cda4c8243585e0559659,
+    type: 3}
+  m_PrefabInstance: {fileID: 1250554408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1840664969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7263687049456039968, guid: e4bc79563497ee14f9f4754e7c71d32b,
