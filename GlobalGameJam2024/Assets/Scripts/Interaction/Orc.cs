@@ -124,8 +124,6 @@ public class Orc : MonoBehaviour
     }
 
 
-
-
     private void OnDrawGizmos()
     {
         if(currentTask != null)
