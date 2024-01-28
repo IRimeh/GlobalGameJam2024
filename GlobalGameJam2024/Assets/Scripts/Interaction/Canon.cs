@@ -56,6 +56,7 @@ public class Canon : AbstractInteractableObject
     {
         cannonballCount = 1;
         workProgress = 0;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/CanonLoad", transform.position);
     }
 
     private void ClearWorkerList()
@@ -97,6 +98,7 @@ public class Canon : AbstractInteractableObject
     {
         readyToFire = false;
 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/CanonShoot", transform.position);
         OnFireParticleSystem.Play();
         transform.DOPunchScale(Vector3.one * 1.25f, 0.1f);
         workProgress = 0;

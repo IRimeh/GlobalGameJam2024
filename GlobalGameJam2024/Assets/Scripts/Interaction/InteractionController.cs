@@ -37,6 +37,7 @@ public class InteractionController : MonoBehaviour
                     if (!orcs.Contains(hitOrc))
                     {
                         orcs.Add(hitOrc);
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/Voice/PeonWhat", hitOrc.transform.position);
                         hitOrc.StopTask();
                     }
                 }
@@ -49,6 +50,7 @@ public class InteractionController : MonoBehaviour
                             if (interactable.IsWorkable(orcs[i]))
                             {
                                 orcs[i].Work(interactable);
+                                FMODUnity.RuntimeManager.PlayOneShot("event:/Voice/PeonConfirm", orcs[i].transform.position);
                                 orcs.RemoveAt(i);
                             }
                         }
