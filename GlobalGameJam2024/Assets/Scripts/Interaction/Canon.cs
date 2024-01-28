@@ -6,70 +6,56 @@ using DG.Tweening;
 public class Canon : AbstractInteractableObject
 {
     float workProgress = 0;
-    int canonballCount = 0;
+    public int cannonballCount = 0;
     List<Orc> workerList = new List<Orc>();
 
     bool readyToFire = false;
 
-    public int MaxOrcsFiring = 3;
-    public int MaxOrcsLoading = 1;
+    public int MaxOrcs = 3;
     public ParticleSystem OnFireParticleSystem;
-
-    private enum CannonState
-    {
-        Loading,
-        Firing
-    }
-    private CannonState cannonState = CannonState.Loading;
 
 
     override public IEnumerator Task(Orc orc)
     {
-        orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
-        workerList.Add(orc);
-
-        float distance = (transform.position - orc.transform.position).magnitude;
-        switch (cannonState)
+        while (true)
         {
-            case CannonState.Loading:
-                orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
+            orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
+            workerList.Add(orc);
 
-                while (distance > 2)
+            float distance = (transform.position - orc.transform.position).magnitude;
+            while (!readyToFire && cannonballCount > 0)
+            {
+                if (cannonballCount > 0 && distance < 2)//in working Range
                 {
-                    distance = (transform.position - orc.transform.position).magnitude;
-
-                    yield return new WaitForSeconds(0.1f);
+                    orc.animator.SetBool("isWorking", true);
                 }
-
-                orc.animator.SetBool("isWorking", true);
-                yield return new WaitForSeconds(3.0f);
-                orc.animator.SetBool("isWorking", false);
-                canonballCount = 1;
-                cannonState = CannonState.Firing;
-                workProgress = 0;
-                orc.StopHoldingObject(out GameObject holdingObj);
-                Destroy(holdingObj);
-                break;
-            case CannonState.Firing:
-
-                while (!readyToFire && canonballCount > 0)
+                else
                 {
-                    if (canonballCount > 0 && distance < 2)//in working Range
-                    {
-                        orc.animator.SetBool("isWorking", true);
-                    }
-                    else
-                    {
-                        orc.animator.SetBool("isWorking", false);
-                        yield return new WaitForSeconds(1f);
-                    }
+                    orc.animator.SetBool("isWorking", false);
                     yield return new WaitForSeconds(1f);
                 }
+                yield return new WaitForSeconds(1f);
+            }
 
-                break;
+            yield return new WaitForSeconds(0.1f);
+
+            if(cannonballCount <= 0 && orc.isHoldingObj && orc.HoldingObj.TryGetComponent<Cannonball>(out _))
+            {
+                orc.animator.SetBool("isWorking", true);
+                yield return new WaitForSeconds(2.0f);
+                orc.animator.SetBool("isWorking", false);
+
+                LoadCannonball();
+                orc.StopHoldingObject(out GameObject holdingObj);
+                Destroy(holdingObj.gameObject);
+            }
         }
+    }
 
-        ClearWorkerList();
+    public void LoadCannonball()
+    {
+        cannonballCount = 1;
+        workProgress = 0;
     }
 
     private void ClearWorkerList()
@@ -92,13 +78,13 @@ public class Canon : AbstractInteractableObject
     // Update is called once per frame
     void Update()
     {
-        if(!readyToFire && cannonState == CannonState.Firing)
+        if(!readyToFire && cannonballCount > 0)
         {
             workProgress += workerList.Count * 10 * Time.deltaTime;
             if(workProgress >= 100 ) 
             {
                 readyToFire = true;
-                canonballCount--;
+                cannonballCount--;
                 workProgress = 0;
             }
         }
@@ -114,24 +100,12 @@ public class Canon : AbstractInteractableObject
         OnFireParticleSystem.Play();
         transform.DOPunchScale(Vector3.one * 1.25f, 0.1f);
         workProgress = 0;
-
-        if (canonballCount <= 0)
-            cannonState = CannonState.Loading;
     }
 
     public override bool IsWorkable(Orc orc)
     {
-        switch (cannonState)
-        {
-            case CannonState.Loading:
-                if (orc.isHoldingObj && orc.HoldingObj.TryGetComponent<Cannonball>(out _) && workerList.Count < MaxOrcsLoading)
-                    return true;
-                break;
-            case CannonState.Firing:
-                if (canonballCount > 0 && workerList.Count < MaxOrcsFiring)
-                    return true;
-                break;
-        }
+        if (workerList.Count < MaxOrcs)
+            return true;
 
         return false;
     }

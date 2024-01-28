@@ -37,6 +37,7 @@ public class InteractionController : MonoBehaviour
                     if (!orcs.Contains(hitOrc))
                     {
                         orcs.Add(hitOrc);
+                        hitOrc.StopTask();
                     }
                 }
                 else if (interactable != null)
