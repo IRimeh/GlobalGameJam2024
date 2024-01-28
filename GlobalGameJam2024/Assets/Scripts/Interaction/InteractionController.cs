@@ -24,12 +24,13 @@ public class InteractionController : MonoBehaviour
             RaycastHit hit;
             Ray ray = new Ray(Camera.transform.position, Camera.transform.forward);
 
-            if(Physics.Raycast(ray, out hit))
+            RaycastHit[] hits = Physics.RaycastAll(ray);
+            foreach (RaycastHit raycastHit in hits)
             {
-                target = hit.point;
+                target = raycastHit.point;
 
-                Orc hitOrc = hit.collider.GetComponent<Orc>();
-                AbstractInteractableObject interactable = hit.collider.GetComponent<AbstractInteractableObject>();
+                Orc hitOrc = raycastHit.collider.GetComponent<Orc>();
+                AbstractInteractableObject interactable = raycastHit.collider.GetComponent<AbstractInteractableObject>();
 
                 if (hitOrc)
                 {
@@ -40,7 +41,7 @@ public class InteractionController : MonoBehaviour
                 }
                 else if (interactable != null)
                 {
-                    if(orcs.Count > 0) 
+                    if (orcs.Count > 0)
                     {
                         for (int i = orcs.Count - 1; i >= 0; i--)
                         {
@@ -52,7 +53,7 @@ public class InteractionController : MonoBehaviour
                         }
                         //orcs.Clear();
                     }
-                    
+
                 }
                 else
                 {
@@ -68,7 +69,7 @@ public class InteractionController : MonoBehaviour
                         }
                     }
                 }
-            } 
+            }
         }
         else
         {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CanonballPile : AbstractInteractableObject
 {
     public GameObject CannonballPrefab;
+    public List<Canon> Cannons = new List<Canon>();
 
     public override bool IsWorkable(Orc orc)
     {
