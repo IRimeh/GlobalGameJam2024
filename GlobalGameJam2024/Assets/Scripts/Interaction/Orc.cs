@@ -90,6 +90,18 @@ public class Orc : MonoBehaviour
         UpdateIcons();
     }
 
+    public void SetRandomWanderPos() {
+		Vector3 randomDirection = Random.insideUnitSphere * 30.0f;
+		randomDirection += transform.position;
+		NavMeshHit hit;
+		NavMesh.SamplePosition(randomDirection, out hit, 30.0f, 1);
+		Vector3 finalPosition = hit.position;
+		agent.destination = finalPosition;
+
+		_wanderTimer = 0.0f;
+		_neededWanderTime = Random.Range(minTimeToWander, maxTimeToWander);
+	}
+
     public void RagdollForSeconds(float seconds)
     {
         seconds += Random.Range(0.0f, 1.0f);

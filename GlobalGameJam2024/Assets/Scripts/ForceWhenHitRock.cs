@@ -10,7 +10,10 @@ public class ForceWhenHitRock : MonoBehaviour
 
     void Start()
     {
-        Vector2 rand = Random.insideUnitCircle.normalized;
-        Rock.OnRockHit += (Rock rock) => { rigidBody.AddForce(new Vector3(rand.x, 1.0f, rand.y) * Random.Range(MinForce, MaxForce), ForceMode.Impulse); };
+        if (rigidBody != null)
+        {
+            Vector2 rand = Random.insideUnitCircle.normalized;
+            Rock.OnRockHit += (Rock rock) => { rigidBody.AddForce(new Vector3(rand.x, 1.0f, rand.y) * Random.Range(MinForce, MaxForce), ForceMode.Impulse); };
+        }
     }
 }
