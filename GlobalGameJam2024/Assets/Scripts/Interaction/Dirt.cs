@@ -30,18 +30,18 @@ public class Dirt : AbstractInteractableObject
         if (orcsCleaning.Contains(orc))
             orcsCleaning.Remove(orc);
 
-        //List<Dirt> dirt = GameObject.FindObjectsOfType<Dirt>().ToList();
-        //dirt = dirt.OrderBy(x => UnityEngine.Random.value).ToList();
-        //Dirt dirtToClean = null;
-        //foreach (Dirt d in dirt)
-        //{
-        //    if (!d.isCleaned)
-        //    {
-        //        dirtToClean = d;
-        //        break;
-        //    }
-        //}
-        //orc.Work(dirtToClean);
+        List<Dirt> dirt = GameObject.FindObjectsOfType<Dirt>().ToList();
+        dirt = dirt.OrderBy(x => UnityEngine.Random.value).ToList();
+        Dirt dirtToClean = null;
+        foreach (Dirt d in dirt)
+        {
+            if (!d.isCleaned)
+            {
+                dirtToClean = d;
+                break;
+            }
+        }
+        orc.Work(dirtToClean);
     }
 
     public override IEnumerator Task(Orc orc)

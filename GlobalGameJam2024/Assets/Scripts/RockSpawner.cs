@@ -10,6 +10,7 @@ public class RockSpawner : MonoBehaviour
     public float Radius = 100.0f;
     public float DespawnRadius = 500.0f;
     public float InitialSpawnRadius = 500.0f;
+    public static RockSpawner Instance;
 
     public List<GameObject> RockPrefabs = new List<GameObject>();
     public Vector3 MinRotation;
@@ -52,6 +53,7 @@ public class RockSpawner : MonoBehaviour
         defaultCameraRot = ShipCamera.transform.rotation;
         moveDir = transform.forward;
         SpawnInitialRocks();
+        Instance = this;
     }
 
     private void SpawnInitialRocks()

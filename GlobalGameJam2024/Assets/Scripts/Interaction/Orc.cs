@@ -52,6 +52,9 @@ public class Orc : MonoBehaviour
 
    public void Work(AbstractInteractableObject interactable)
     {
+        if (interactable == null || gameObject == null)
+            return;
+
         StopAllCoroutines();
         currentInteractable = interactable;
         currentTask = currentInteractable.Task(this);
@@ -108,12 +111,15 @@ public class Orc : MonoBehaviour
     public void RagdollForSeconds(float seconds)
     {
         seconds += Random.Range(0.0f, 1.0f);
-        StartCoroutine(UnRagdollTimer());
+        RockSpawner.Instance.StartCoroutine(UnRagdollTimer());
         IEnumerator UnRagdollTimer()
         {
             Vector3 dest = agent.destination;
             Ragdoll();
             yield return new WaitForSeconds(seconds);
+
+            if (ragdollRigidBody == null)
+                yield break;
 
             while (ragdollRigidBody.velocity.magnitude > .5f)
                 yield return null;
