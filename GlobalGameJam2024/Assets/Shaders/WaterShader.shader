@@ -38,6 +38,12 @@ Shader "Unlit/WaterShader"
             Tags { "RenderType" = "Transparent" "Queue" = "Transparent" "RenderPipeline" = "UniversalRenderPipeline" }
             Blend SrcAlpha OneMinusSrcAlpha
 
+            Stencil
+            {
+                Ref 1
+                Comp NotEqual
+}
+
             Pass
             {
                 HLSLPROGRAM
