@@ -27,7 +27,7 @@ public class GameOverScript : MonoBehaviour
 			Text.gameObject.SetActive(true);
 			Score.gameObject.SetActive(true);
 			ReturnToMenuTime = Time.time + GmaeOverShowTime;
-			PlayerPrefs.SetInt("Highscore", time.GetAliveTime());
+			PlayerPrefs.SetInt("Highscore", Mathf.Max(time.GetAliveTime(), PlayerPrefs.GetInt("Highscore")));
 			Score.text = "Score: " + FindObjectOfType<AliveTime>().GetAliveTime() + " Seconds";
 		}
 	}
