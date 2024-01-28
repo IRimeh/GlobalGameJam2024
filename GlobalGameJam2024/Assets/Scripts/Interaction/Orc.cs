@@ -52,6 +52,9 @@ public class Orc : MonoBehaviour
 
    public void Work(AbstractInteractableObject interactable)
     {
+        if (interactable == null || gameObject == null)
+            return;
+
         StopAllCoroutines();
         currentInteractable = interactable;
         currentTask = currentInteractable.Task(this);
@@ -61,13 +64,16 @@ public class Orc : MonoBehaviour
     public void StopTask()
     {
         StopAllCoroutines();
-        if(currentInteractable != null) currentInteractable.OnStopTask(this);
         currentTask = null;
+        if(currentInteractable != null) currentInteractable.OnStopTask(this);
     }
 
     private void Update()
     {
         hipJoint.targetRotation = Quaternion.Euler(new Vector3(0.0f, -transform.rotation.eulerAngles.y, 0.0f));
+
+        if (currentInteractable == null)
+            StopTask();
 
         if(currentTask == null && !IsRagdolling && agent.isOnNavMesh && !IsSelected)
         {
@@ -105,12 +111,15 @@ public class Orc : MonoBehaviour
     public void RagdollForSeconds(float seconds)
     {
         seconds += Random.Range(0.0f, 1.0f);
-        StartCoroutine(UnRagdollTimer());
+        RockSpawner.Instance.StartCoroutine(UnRagdollTimer());
         IEnumerator UnRagdollTimer()
         {
             Vector3 dest = agent.destination;
             Ragdoll();
             yield return new WaitForSeconds(seconds);
+
+            if (ragdollRigidBody == null)
+                yield break;
 
             while (ragdollRigidBody.velocity.magnitude > .5f)
                 yield return null;
