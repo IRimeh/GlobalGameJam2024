@@ -15,6 +15,7 @@ public class Rock : MonoBehaviour
         if(other.tag == "ShipRockCollider")
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ShipCrash", transform.position + Vector3.up * 15.0f);
+            Debug.Log(transform.position + Vector3.up * 15.0f);
             RockSpawner.ReplaceRock(this);
             OnRockHit?.Invoke(this, true);
             RockSpawner.ShipDamage.ReceiveDamage();
@@ -26,5 +27,11 @@ public class Rock : MonoBehaviour
             RockSpawner.ReplaceRock(this);
             OnRockHit?.Invoke(this, false);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(transform.position + Vector3.up * 15.0f, 5.0f);
     }
 }
