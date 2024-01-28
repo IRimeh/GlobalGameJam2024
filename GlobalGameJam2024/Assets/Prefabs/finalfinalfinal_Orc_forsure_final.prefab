@@ -1173,6 +1173,7 @@ GameObject:
   - component: {fileID: 184302300461310208}
   - component: {fileID: 7773814716758085117}
   - component: {fileID: 1793127658501057470}
+  - component: {fileID: 1734369654}
   m_Layer: 0
   m_Name: mixamorig:Hips
   m_TagString: Untagged
@@ -1339,6 +1340,19 @@ MonoBehaviour:
   MinForce: 250
   MaxForce: 500
   rigidBody: {fileID: 734214129691059795}
+--- !u!114 &1734369654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2613182521542694611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8c87e2b87c05b48bf44422749a30e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sod: {fileID: 5188593906610010858}
 --- !u!1 &2618412958316683115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1405,7 @@ GameObject:
   - component: {fileID: 4427823077517298360}
   - component: {fileID: 6466893372288311139}
   - component: {fileID: 4683557002268155114}
+  - component: {fileID: 5188593906610010858}
   m_Layer: 0
   m_Name: finalfinalfinal_Orc_forsure_final
   m_TagString: Untagged
@@ -1594,8 +1609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dcd8b8b81e36c4486f30191aae9aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDropTime: 60
-  maxDropTime: 240
+  minDropTime: 1
+  maxDropTime: 2
   engangeTime: 5
   DirtPrefab: {fileID: 6990740340728766461, guid: 5120632f682dff742b69e8d273543e03,
     type: 3}
@@ -1612,6 +1627,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hand: {fileID: 1777026945943056594}
+--- !u!114 &5188593906610010858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848398006119445896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe1637911e91bb4eba1b48941cd0599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 2209295224483478246}
+  cooldown: 10
+  minForce: 50
+  maxForce: 150
 --- !u!1 &2979625175160081055
 GameObject:
   m_ObjectHideFlags: 0
