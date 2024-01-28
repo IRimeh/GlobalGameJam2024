@@ -8,4 +8,25 @@ public class ShipSpawner : MonoBehaviour
 	public float maxRespawnTime = 90.0f;
 
 	private float nextSpawnTime = 0;
+
+	public EnemyShip eShip;
+
+	private void Start()
+	{
+		StartTime(eShip);
+		EnemyShip.ShipSunk += StartTime;
+	}
+
+	private void StartTime(EnemyShip eShip) {
+		nextSpawnTime = Time.time + Random.Range(minRespawnTime, maxRespawnTime);
+	}
+
+	public void Update()
+	{
+		if(Time.time >= nextSpawnTime)
+		{
+			eShip.Rise();
+			nextSpawnTime = Mathf.Infinity;
+		}
+	}
 }
