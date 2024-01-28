@@ -10212,7 +10212,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 465, z: -90}
 --- !u!1001 &372442539
 PrefabInstance:
@@ -15838,7 +15838,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 60}
 --- !u!64 &833400863
 MeshCollider:
@@ -15861,7 +15861,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833400861}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -21687,7 +21687,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 465, z: -90}
 --- !u!1 &1190314714
 GameObject:
@@ -26500,7 +26500,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 465, z: -90}
 --- !u!1 &1202884528 stripped
 GameObject:
@@ -26854,6 +26854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93d162fc215c5a4d9049d281a0d41e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableGUI: 1
   musicVolume: 0
   ambientVolume: 0
   sfxVolume: 0
@@ -34148,7 +34149,7 @@ PrefabInstance:
     - target: {fileID: 4381809179490570794, guid: 7255301e6c8fea84e8fd1b60e94e87af,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4381809179490570794, guid: 7255301e6c8fea84e8fd1b60e94e87af,
         type: 3}
