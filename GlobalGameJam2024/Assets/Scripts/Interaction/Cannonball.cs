@@ -42,6 +42,11 @@ public class Cannonball : MonoBehaviour
                 {
                     enemyShip.TakeDamage();
                 }
+
+                if(other.TryGetComponent<GetDamaged>(out GetDamaged getDamaged))
+                {
+                    getDamaged.ReceiveDamage();
+                }
             }
         }
     }

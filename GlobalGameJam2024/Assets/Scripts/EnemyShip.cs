@@ -17,6 +17,8 @@ public class EnemyShip : MonoBehaviour
     public List<Canon> leftCannons = new List<Canon>();
     public List<Canon> rightCannons = new List<Canon>();
     public float ShootTime = 1;
+    public int MinCannonBallsToShoot = 2;
+    public int MaxCannonBallsToShoot = 3;
 
     private bool isSinking = false;
     private int currentHealth = 8;
@@ -58,16 +60,21 @@ public class EnemyShip : MonoBehaviour
 
         if(shootTimer > ShootTime)
         {
-            Shoot();
+            StartCoroutine(Shoot(Mathf.Max(UnityEngine.Random.Range(MinCannonBallsToShoot, MaxCannonBallsToShoot + 1), 1)));
             shootTimer = 0;
         }
     }
 
-    private void Shoot()
+    private IEnumerator Shoot(int count)
     {
         List<Canon> cannonsToShoot = shipAttackDir == ShipAttackDir.Left ? leftCannons : rightCannons;
         cannonsToShoot = cannonsToShoot.OrderBy(x => UnityEngine.Random.value).ToList();
-        cannonsToShoot[0].Fire();
+        for (int i = 0; i < count; i++)
+        {
+            cannonsToShoot[0].Fire();
+            cannonsToShoot.RemoveAt(0);
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 
     public void TakeDamage()

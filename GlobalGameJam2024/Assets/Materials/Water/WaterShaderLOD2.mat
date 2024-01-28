@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _EnvTex:
-        m_Texture: {fileID: 8900000, guid: e910e7254cd250344a15771d1ae19d39, type: 3}
+        m_Texture: {fileID: 8900000, guid: 86b63b60506b62546a2c904604108676, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
@@ -46,8 +46,8 @@ Material:
     - _WaveScrollSpeed: 0.4
     - _WaveSize: 5
     m_Colors:
-    - _DeepColor: {r: 0.3037113, g: 0.34098193, b: 0.6132076, a: 1}
-    - _ShallowColor: {r: 0.41037738, g: 0.76795435, b: 1, a: 1}
+    - _DeepColor: {r: 0.03137255, g: 0.2901961, b: 0.32941177, a: 1}
+    - _ShallowColor: {r: 0.44313726, g: 0.7647059, b: 0.83137256, a: 1}
     - _ShorelineColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 2, g: 2, b: 2, a: 1}
     - _WaveScrollDir: {r: 1, g: 1, b: 0, a: 0}

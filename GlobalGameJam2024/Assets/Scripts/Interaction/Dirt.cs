@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Dirt : AbstractInteractableObject
@@ -68,9 +69,25 @@ public class Dirt : AbstractInteractableObject
         if (_timeCleaned > TimeToClean)
         {
             isCleaned = true;
+
+            List<Dirt> dirt = GameObject.FindObjectsOfType<Dirt>().ToList();
             for (int i = orcsCleaning.Count - 1; i >= 0; i--)
             {
-                orcsCleaning[i].StopTask();
+                dirt = dirt.OrderBy(x => UnityEngine.Random.value).ToList();
+                Dirt dirtToClean = null;
+                foreach (Dirt d in dirt)
+                {
+                    if (!d.isCleaned)
+                    {
+                        dirtToClean = d;
+                        break;
+                    }
+                }
+
+                if (dirtToClean == null)
+                    orcsCleaning[i].StopTask();
+                else
+                    orcsCleaning[i].Work(dirtToClean);
             }
             StopAllCoroutines();
             Destroy(ObjToDestroyWhenClean);

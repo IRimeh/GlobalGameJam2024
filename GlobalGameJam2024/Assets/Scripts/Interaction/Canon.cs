@@ -104,7 +104,7 @@ public class Canon : AbstractInteractableObject
             Fire();
     }
 
-    public void Fire(bool variance = false)
+    public void Fire()
     {
         readyToFire = false;
 

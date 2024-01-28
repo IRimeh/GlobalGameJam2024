@@ -1340,6 +1340,7 @@ MonoBehaviour:
   MinForce: 250
   MaxForce: 500
   rigidBody: {fileID: 734214129691059795}
+  OnlyWhenPlayer: 1
 --- !u!114 &1734369654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,6 +1567,7 @@ MonoBehaviour:
   HipAnchor: {fileID: 7263687049456039968}
   MaxGetUpDistance: 3
   isRagdoll: 0
+  MaxRagdollTime: 15
 --- !u!114 &7587179531378321919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,6 +1595,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnlyWhenPlayer: 1
 --- !u!114 &4427823077517298360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,6 +1611,7 @@ MonoBehaviour:
   MinForce: 50
   MaxForce: 100
   rigidBody: {fileID: 2209295224483478246}
+  OnlyWhenPlayer: 1
 --- !u!114 &6466893372288311139
 MonoBehaviour:
   m_ObjectHideFlags: 0
