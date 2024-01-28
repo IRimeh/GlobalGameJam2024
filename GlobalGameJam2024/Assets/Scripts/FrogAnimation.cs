@@ -20,4 +20,9 @@ public class FrogAnimation : MonoBehaviour
 	{
 		animator.SetFloat("WalkSpeed", Agent.velocity.magnitude / Agent.speed);
 	}
+
+	public void Step()
+	{
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/PeonStep", transform.position);
+    }
 }
