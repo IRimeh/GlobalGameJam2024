@@ -50,7 +50,7 @@ public class InteractionController : MonoBehaviour
                         hitOrc.StopTask();
                     }
                 }
-                else if (interactable != null)
+                else if (interactable != null && Vector3.Distance(transform.position, interactable.transform.position) < 5.0f)
                 {
                     if (orcs.Count > 0)
                     {

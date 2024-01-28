@@ -24,7 +24,8 @@ public class DropDirt : MonoBehaviour
 	{
 		if (Time.time >= nextDrop) {
 			nextDrop = Time.time + Random.Range(minDropTime,maxDropTime);
-			Drop();
+			if(UnityEngine.Random.Range(0, 1.0f) > 0.5f)
+				Drop();
 		}
 	}
 
