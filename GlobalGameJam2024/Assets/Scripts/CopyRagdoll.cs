@@ -29,6 +29,17 @@ public class CopyRagdoll : MonoBehaviour
 
 	public bool isRagdoll;
 
+	public float MaxRagdollTime = 15.0f;
+	private float DespawnTime = Mathf.Infinity;
+
+	private void Update()
+	{
+		if (isRagdoll && Time.time >= DespawnTime) {
+			FindObjectOfType<OrcSpawner>().RemoveOrc(GetComponent<Orc>());
+			Destroy(this.gameObject);
+		}
+	}
+
 	private void Start()
 	{
 		RagHipPos = RagdollBase.GetComponentInChildren<Rigidbody>().transform.localPosition;
@@ -91,6 +102,8 @@ public class CopyRagdoll : MonoBehaviour
 		Agent.enabled = false;
 
 		isRagdoll = true;
+
+		DespawnTime = Time.time + MaxRagdollTime;
 	}
 
 	[Button]
