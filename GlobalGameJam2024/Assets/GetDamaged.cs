@@ -8,6 +8,8 @@ public class GetDamaged : MonoBehaviour
 {
 	public GameObject HolePrefab;
 
+
+
 	[Button]
 	public void ReceiveDamage() {
 		Orc[] orcs = FindObjectsOfType<Orc>();

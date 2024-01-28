@@ -9,16 +9,24 @@ public class ShipSpawner : MonoBehaviour
 
 	private float nextSpawnTime = 0;
 
-	private EnemyShip eShip;
+	public EnemyShip eShip;
 
 	private void Start()
 	{
-		eShip = GetComponent<EnemyShip>();
+		StartTime(eShip);
+		EnemyShip.ShipSunk += StartTime;
+	}
+
+	private void StartTime(EnemyShip eShip) {
 		nextSpawnTime = Time.time + Random.Range(minRespawnTime, maxRespawnTime);
 	}
 
 	public void Update()
 	{
-		
+		if(Time.time >= nextSpawnTime)
+		{
+			eShip.Rise();
+			nextSpawnTime = Mathf.Infinity;
+		}
 	}
 }

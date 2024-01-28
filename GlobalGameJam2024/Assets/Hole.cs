@@ -1,9 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hole : AbstractInteractableObject
 {
+    public static List<Hole> Instances = new List<Hole>();
+
+    public int HolesTilLGameOver = 8;
+
+	private void OnDestroy()
+	{
+        Instances.Remove(this);
+	}
+
+	private void Awake()
+	{
+        Instances.Add(this);
+	}
+
 	public ParticleSystem Splash;
 
     private List<Orc> orcsCleaning = new List<Orc>();
@@ -76,6 +91,11 @@ public class Hole : AbstractInteractableObject
             }
             StopAllCoroutines();
             Destroy(ObjToDestroyWhenClean);
+        }
+
+        if (Instances.Count >= HolesTilLGameOver) {
+            PlayerPrefs.SetInt("Highscore", FindObjectOfType<AliveTime>().GetAliveTime());
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
     }
 }
