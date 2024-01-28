@@ -94,8 +94,7 @@ public class Hole : AbstractInteractableObject
         }
 
         if (Instances.Count >= HolesTilLGameOver) {
-            PlayerPrefs.SetInt("Highscore", FindObjectOfType<AliveTime>().GetAliveTime());
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
+            FindObjectOfType<GameOverScript>().StartGameOver();
         }
     }
 }
