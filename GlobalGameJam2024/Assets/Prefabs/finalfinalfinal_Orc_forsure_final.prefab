@@ -1538,6 +1538,8 @@ MonoBehaviour:
   CopyRagdoll: {fileID: 7263687050897575683}
   isHoldingObj: 0
   HoldingObj: {fileID: 0}
+  minTimeToWander: 5
+  maxTimeToWander: 10
 --- !u!114 &7263687050897575683
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,10 +17,10 @@ public class Canon : AbstractInteractableObject
 
     override public IEnumerator Task(Orc orc)
     {
+        workerList.Add(orc);
         while (true)
         {
             orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
-            workerList.Add(orc);
 
             float distance = (transform.position - orc.transform.position).magnitude;
             while (!readyToFire && cannonballCount > 0)
