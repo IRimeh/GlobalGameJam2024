@@ -28,5 +28,10 @@ public class ShipSpawner : MonoBehaviour
 			eShip.Rise();
 			nextSpawnTime = Mathf.Infinity;
 		}
+
+		if(Input.GetKeyDown(KeyCode.U))
+		{
+			eShip.Rise();
+		}
 	}
 }
