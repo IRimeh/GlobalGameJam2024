@@ -119,5 +119,7 @@ public class EnemyShip : MonoBehaviour
         currentHealth = Health;
         shipAttackDir = UnityEngine.Random.Range(0, 1.0f) > 0.5f ? ShipAttackDir.Left : ShipAttackDir.Right;
         targetTransform.position = ShipTransform.position + ShipTransform.right * 40.0f * (shipAttackDir == ShipAttackDir.Left ? 1 : -1);
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ShipAppear", transform.position);
     }
 }
