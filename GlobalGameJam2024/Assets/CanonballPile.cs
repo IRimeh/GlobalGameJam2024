@@ -22,6 +22,10 @@ public class CanonballPile : AbstractInteractableObject
     {
         while (true)
         {
+            while(!orc.agent.isOnNavMesh)
+            {
+                yield return null;
+            }
             orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
 
             float distance = (transform.position - orc.transform.position).magnitude;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.AI;
 
 public class Canon : AbstractInteractableObject
 {
@@ -17,9 +18,15 @@ public class Canon : AbstractInteractableObject
 
     override public IEnumerator Task(Orc orc)
     {
-        workerList.Add(orc);
+        if(!workerList.Contains(orc))
+            workerList.Add(orc);
+
         while (true)
         {
+            while(!orc.agent.isOnNavMesh)
+            {
+                yield return null;
+            }
             orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
 
             float distance = (transform.position - orc.transform.position).magnitude;

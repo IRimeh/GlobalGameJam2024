@@ -31,6 +31,7 @@ public class Orc : MonoBehaviour
     private float _neededWanderTime = 0.0f;
 
     public bool IsRagdolling = false;
+    public bool IsSelected = false;
 
 
     // Start is called before the first frame update
@@ -61,7 +62,7 @@ public class Orc : MonoBehaviour
     {
         hipJoint.targetRotation = Quaternion.Euler(new Vector3(0.0f, -transform.rotation.eulerAngles.y, 0.0f));
 
-        if(currentTask == null && !IsRagdolling && agent.isOnNavMesh)
+        if(currentTask == null && !IsRagdolling && agent.isOnNavMesh && !IsSelected)
         {
             _wanderTimer += Time.deltaTime;
             if(_wanderTimer > _neededWanderTime)
