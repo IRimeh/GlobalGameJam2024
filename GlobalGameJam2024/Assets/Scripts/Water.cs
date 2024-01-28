@@ -23,13 +23,18 @@ public class Water : MonoBehaviour
                 parent = parent.parent;
             }
 
-            FindObjectOfType<OrcSpawner>().RemoveOrc(orc);
 
+            OrcSpawner Spawner = FindObjectOfType<OrcSpawner>();
+            if(Spawner != null)
+                Spawner.RemoveOrc(orc);
+
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Voice/PeonDie", other.transform.position);
             Destroy(orc.gameObject);
         }
 
         if(other.gameObject.GetComponent<FirstPersonController>() != null) {
             other.gameObject.GetComponent<FirstPersonController>().Warp(SpawnPoint);
-		}
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/WaterSplash", other.transform.position);
+        }
     }
 }

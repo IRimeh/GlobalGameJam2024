@@ -121,6 +121,7 @@ MonoBehaviour:
     m_Bits: 256
   explosionParticle: {fileID: 1256689718448219986}
   meshRenderer: {fileID: 306347313111835768}
+  trailRenderer: {fileID: 6465673311026251382}
   coll: {fileID: 306347313111835771}
 --- !u!54 &5932835799412878797
 Rigidbody:
