@@ -9,6 +9,8 @@ public class GetDamaged : MonoBehaviour
 	private void ReceiveDamage() {
 		Orc[] orcs = FindObjectsOfType<Orc>();
 
+		Orc target = orcs[Random.Range(0, orcs.Length)];
+
 
 	}
 }
