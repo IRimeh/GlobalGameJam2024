@@ -133,7 +133,7 @@ Shader "Unlit/WaterShader"
                     float3 waveHeight2 = SAMPLE_TEXTURE2D_LOD(_WaveHeightTex, sampler_WaveHeightTex, (scrollingwPos.xz - _WaveScrollDir * _Time.y * _WaveScrollSpeed * _WaveHeightTex_ST.zw) * _DetailWaveSize * 0.01f * _WaveHeightTex_ST.xy, 1);
                     float3 waveHeight = (waveHeight1 + waveHeight2) * 0.5f;
 
-                    v.vertex.y += waveHeight.r * 8.0f * 1;
+                    v.vertex.y += min(waveHeight.r, 0.525f) * 8.0f * 1;
                     positionInputs = GetVertexPositionInputs(v.vertex.xyz);
                     VertexNormalInputs normalInputs = GetVertexNormalInputs(v.normal.xyz, v.tangent);
 

@@ -16,6 +16,7 @@ public class RockSpawner : MonoBehaviour
     public Vector3 MaxRotation;
     public Vector3 MinScale;
     public Vector3 MaxScale;
+    public Vector3 Offset = new Vector3(0, -10, 0);
     public int AmountOfRocks = 20;
     public float RockMoveSpeed = 1.0f;
     public float RotateSpeed = 10.0f;
@@ -59,7 +60,7 @@ public class RockSpawner : MonoBehaviour
             float range = Random.Range(InitialSpawnRadius, DespawnRadius);
             Vector2 randDir = Random.insideUnitCircle.normalized;
             GameObject rock = Instantiate(RockPrefabs[Random.Range(0, RockPrefabs.Count)],
-                                transform.position + (transform.right * randDir.x * range) + (transform.forward * randDir.y * range),// new Vector3(, 0, randDir.y * range),
+                                transform.position + (transform.right * randDir.x * range) + (transform.forward * randDir.y * range) + Offset,// new Vector3(, 0, randDir.y * range),
                                 Quaternion.Euler(Random.Range(MinRotation.x, MaxRotation.x), Random.Range(MinRotation.y, MaxRotation.y), Random.Range(MinRotation.z, MaxRotation.z)),
                                 transform);
             Rocks.Add(rock);
@@ -167,7 +168,7 @@ public class RockSpawner : MonoBehaviour
             {
                 float range = Random.Range(Radius, DespawnRadius);
                 Vector2 randDir = Random.insideUnitCircle.normalized;
-                rock.transform.position = transform.position + new Vector3(randDir.x * range, 0, randDir.y * range);
+                rock.transform.position = transform.position + new Vector3(randDir.x * range, 0, randDir.y * range) + Offset;
                 rock.transform.rotation = Quaternion.Euler(Random.Range(MinRotation.x, MaxRotation.x), Random.Range(MinRotation.y, MaxRotation.y), Random.Range(MinRotation.z, MaxRotation.z));
             }
         }
@@ -177,7 +178,7 @@ public class RockSpawner : MonoBehaviour
     {
         float range = Random.Range(Radius, DespawnRadius);
         Vector2 randDir = Random.insideUnitCircle.normalized;
-        rock.transform.position = transform.position + new Vector3(randDir.x * range, 0, randDir.y * range);
+        rock.transform.position = transform.position + new Vector3(randDir.x * range, 0, randDir.y * range) + Offset;
         rock.transform.rotation = Quaternion.Euler(Random.Range(MinRotation.x, MaxRotation.x), Random.Range(MinRotation.y, MaxRotation.y), Random.Range(MinRotation.z, MaxRotation.z));
     }
 
