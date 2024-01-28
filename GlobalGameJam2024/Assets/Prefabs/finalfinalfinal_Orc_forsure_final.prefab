@@ -1620,8 +1620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dcd8b8b81e36c4486f30191aae9aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDropTime: 10
-  maxDropTime: 60
+  minDropTime: 60
+  maxDropTime: 240
   engangeTime: 5
   DirtPrefab: {fileID: 6990740340728766461, guid: 5120632f682dff742b69e8d273543e03,
     type: 3}
