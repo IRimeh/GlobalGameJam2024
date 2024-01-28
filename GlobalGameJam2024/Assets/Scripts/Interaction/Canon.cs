@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.AI;
 
 public class Canon : AbstractInteractableObject
 {
@@ -17,9 +18,15 @@ public class Canon : AbstractInteractableObject
 
     override public IEnumerator Task(Orc orc)
     {
-        workerList.Add(orc);
+        if(!workerList.Contains(orc))
+            workerList.Add(orc);
+
         while (true)
         {
+            while(!orc.agent.isOnNavMesh)
+            {
+                yield return null;
+            }
             orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
 
             float distance = (transform.position - orc.transform.position).magnitude;
@@ -56,6 +63,7 @@ public class Canon : AbstractInteractableObject
     {
         cannonballCount = 1;
         workProgress = 0;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/CanonLoad", transform.position);
     }
 
     private void ClearWorkerList()
@@ -97,6 +105,7 @@ public class Canon : AbstractInteractableObject
     {
         readyToFire = false;
 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/CanonShoot", transform.position);
         OnFireParticleSystem.Play();
         transform.DOPunchScale(Vector3.one * 1.25f, 0.1f);
         workProgress = 0;

@@ -29,19 +29,19 @@ public class SoundCheck : MonoBehaviour
         StartCoroutine(nameof(DelayedStartMusic));
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.S))
-    //    {
-    //        Step();
-    //    }
-    //    if(Input.GetKeyDown(KeyCode.Q))
-    //    {
-    //        showMenu = !showMenu;
-    //    }
-    //    
-    //}
+     //Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Step();
+        }
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            showMenu = !showMenu;
+        }
+        
+    }
 
     void Step()
     {

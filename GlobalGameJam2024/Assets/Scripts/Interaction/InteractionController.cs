@@ -25,8 +25,10 @@ public class InteractionController : MonoBehaviour
             Ray ray = new Ray(Camera.transform.position, Camera.transform.forward);
 
             RaycastHit[] hits = Physics.RaycastAll(ray);
+            int index = 0;
             foreach (RaycastHit raycastHit in hits)
             {
+                index++;
                 target = raycastHit.point;
 
                 Orc hitOrc = raycastHit.collider.GetComponent<Orc>();
@@ -37,6 +39,8 @@ public class InteractionController : MonoBehaviour
                     if (!orcs.Contains(hitOrc))
                     {
                         orcs.Add(hitOrc);
+                        hitOrc.IsSelected = true;
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/Voice/PeonWhat", hitOrc.transform.position);
                         hitOrc.StopTask();
                     }
                 }
@@ -49,6 +53,8 @@ public class InteractionController : MonoBehaviour
                             if (interactable.IsWorkable(orcs[i]))
                             {
                                 orcs[i].Work(interactable);
+                                FMODUnity.RuntimeManager.PlayOneShot("event:/Voice/PeonConfirm", orcs[i].transform.position);
+                                orcs[i].IsSelected = false;
                                 orcs.RemoveAt(i);
                             }
                         }
@@ -75,6 +81,10 @@ public class InteractionController : MonoBehaviour
         else
         {
             leftArmAnim.SetBool("isPointing", false);
+            foreach (var orc in orcs)
+            {
+                orc.IsSelected = false;
+            }
             orcs.Clear();
         }
 
