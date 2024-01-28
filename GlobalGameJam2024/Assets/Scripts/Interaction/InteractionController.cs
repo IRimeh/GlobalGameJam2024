@@ -27,7 +27,6 @@ public class InteractionController : MonoBehaviour
             leftArmAnim.SetBool("isPointing", true);
 
             Vector3 target = transform.position;
-            RaycastHit hit;
             Ray ray = new Ray(Camera.transform.position, Camera.transform.forward);
 
             RaycastHit[] hits = Physics.RaycastAll(ray);

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Hole : MonoBehaviour
 {
-	
+	public ParticleSystem Splash;
 }

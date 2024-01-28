@@ -1407,6 +1407,7 @@ GameObject:
   - component: {fileID: 4683557002268155114}
   - component: {fileID: 5188593906610010858}
   - component: {fileID: 5188593906610010869}
+  - component: {fileID: 4016373046205111512}
   m_Layer: 0
   m_Name: finalfinalfinal_Orc_forsure_final
   m_TagString: Untagged
@@ -1666,6 +1667,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bonkForce: 200
   cooldown: 5
+--- !u!114 &4016373046205111512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848398006119445896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2913ffc3576fe7f47a4b8235a9fc084c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splashForce: 300
+  cooldown: 8
 --- !u!1 &2979625175160081055
 GameObject:
   m_ObjectHideFlags: 0
