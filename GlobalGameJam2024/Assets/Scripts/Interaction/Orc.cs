@@ -25,12 +25,19 @@ public class Orc : MonoBehaviour
     public bool isHoldingObj = false;
     public GameObject HoldingObj = null;
 
+    public float minTimeToWander = 8.0f;
+    public float maxTimeToWander = 15.0f;
+    private float _wanderTimer = 0.0f;
+    private float _neededWanderTime = 0.0f;
+
 
     // Start is called before the first frame update
     void Awake()
     {
         animator = GetComponent<Animator>();    
         agent = GetComponent<NavMeshAgent>();
+        _neededWanderTime = Random.Range(minTimeToWander, maxTimeToWander);
+        _wanderTimer = Random.Range(0, _neededWanderTime);
     }
 
    public void Work(AbstractInteractableObject interactable)
@@ -51,6 +58,24 @@ public class Orc : MonoBehaviour
     private void Update()
     {
         hipJoint.targetRotation = Quaternion.Euler(new Vector3(0.0f, -transform.rotation.eulerAngles.y, 0.0f));
+
+        if(currentTask == null)
+        {
+            _wanderTimer += Time.deltaTime;
+            if(_wanderTimer > _neededWanderTime)
+            {
+                // Wander to random spot
+                Vector3 randomDirection = Random.insideUnitSphere * 5.0f;
+                randomDirection += transform.position;
+                NavMeshHit hit;
+                NavMesh.SamplePosition(randomDirection, out hit, 5.0f, 1);
+                Vector3 finalPosition = hit.position;
+                agent.destination = finalPosition;
+
+                _wanderTimer = 0.0f;
+                _neededWanderTime = Random.Range(minTimeToWander, maxTimeToWander);
+            }
+        }
     }
 
     public void RagdollForSeconds(float seconds)
@@ -59,6 +84,7 @@ public class Orc : MonoBehaviour
         StartCoroutine(UnRagdollTimer());
         IEnumerator UnRagdollTimer()
         {
+            Vector3 dest = agent.destination;
             Ragdoll();
             yield return new WaitForSeconds(seconds);
 
@@ -66,6 +92,7 @@ public class Orc : MonoBehaviour
                 yield return null;
 
             UnRagdoll();
+            agent.destination = dest;
         }
     }
 
