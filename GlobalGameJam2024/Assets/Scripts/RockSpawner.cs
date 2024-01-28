@@ -23,6 +23,7 @@ public class RockSpawner : MonoBehaviour
     public float RotateAcceleration = 1.0f;
 
     [Header("Ship Swaying")]
+    public GetDamaged ShipDamage;
     public Transform ShipTransform;
     public Transform SwayTransform;
     public float SwayAmount;

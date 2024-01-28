@@ -18999,6 +18999,11 @@ PrefabInstance:
       objectReference: {fileID: 2033954792}
     - target: {fileID: 7637590868665238913, guid: 185421e4f816fc047ac38cf68595ed98,
         type: 3}
+      propertyPath: ShipDamage
+      value: 
+      objectReference: {fileID: 3469287838655070526}
+    - target: {fileID: 7637590868665238913, guid: 185421e4f816fc047ac38cf68595ed98,
+        type: 3}
       propertyPath: ShipTransform
       value: 
       objectReference: {fileID: 149288826}

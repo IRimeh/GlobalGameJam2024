@@ -17,6 +17,7 @@ public class Rock : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ShipCrash", transform.position + Vector3.up * 15.0f);
             RockSpawner.ReplaceRock(this);
             OnRockHit?.Invoke(this, true);
+            RockSpawner.ShipDamage.ReceiveDamage();
         }
 
         if (other.tag == "EnemyShipRockCollider")
