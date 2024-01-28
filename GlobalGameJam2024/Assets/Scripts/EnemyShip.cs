@@ -66,7 +66,7 @@ public class EnemyShip : MonoBehaviour
     private void Shoot()
     {
         List<Canon> cannonsToShoot = shipAttackDir == ShipAttackDir.Left ? leftCannons : rightCannons;
-        cannonsToShoot = cannonsToShoot.OrderBy(x => Random.value).ToList();
+        cannonsToShoot = cannonsToShoot.OrderBy(x => UnityEngine.Random.value).ToList();
         cannonsToShoot[0].Fire();
     }
 
@@ -110,7 +110,7 @@ public class EnemyShip : MonoBehaviour
         transform.rotation = StartPos.rotation;
 
         currentHealth = Health;
-        shipAttackDir = Random.Range(0, 1.0f) > 0.5f ? ShipAttackDir.Left : ShipAttackDir.Right;
+        shipAttackDir = UnityEngine.Random.Range(0, 1.0f) > 0.5f ? ShipAttackDir.Left : ShipAttackDir.Right;
         targetTransform.position = ShipTransform.position + ShipTransform.right * 40.0f * (shipAttackDir == ShipAttackDir.Left ? 1 : -1);
     }
 }
