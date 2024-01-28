@@ -11,6 +11,7 @@ public class Dirt : AbstractInteractableObject
     private float _timeCleaned = 0.0f;
 
     public GameObject ObjToDestroyWhenClean;
+    public GameObject BroomPrefab;
 
     public override bool IsWorkable(Orc orc)
     {
@@ -19,12 +20,25 @@ public class Dirt : AbstractInteractableObject
 
     public override void OnStopTask(Orc orc)
     {
+        if (orc.isHoldingObj)
+        {
+            orc.StopHoldingObject(out GameObject holdObj);
+            Destroy(holdObj);
+        }
+
         if (orcsCleaning.Contains(orc))
             orcsCleaning.Remove(orc);
     }
 
     public override IEnumerator Task(Orc orc)
     {
+        if (orc.isHoldingObj)
+        {
+            orc.StopHoldingObject(out GameObject holdObj);
+            Destroy(holdObj);
+        }
+        GameObject broom = Instantiate(BroomPrefab);
+        orc.HoldObject(broom);
         orc.agent.destination = transform.position + (orc.transform.position - transform.position).normalized;
 
         float distance = (transform.position - orc.transform.position).magnitude;

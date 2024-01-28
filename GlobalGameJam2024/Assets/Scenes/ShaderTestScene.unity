@@ -11761,6 +11761,11 @@ PrefabInstance:
       propertyPath: Cannons.Array.data[5]
       value: 
       objectReference: {fileID: 1872478619}
+    - target: {fileID: 7895923205997988581, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b97f5ad555e6d7d43866c63408a89b87, type: 2}
     - target: {fileID: 7895923205997988583, guid: 823e71f1ce9c5824aa68f076fc2b1a08,
         type: 3}
       propertyPath: m_Name
