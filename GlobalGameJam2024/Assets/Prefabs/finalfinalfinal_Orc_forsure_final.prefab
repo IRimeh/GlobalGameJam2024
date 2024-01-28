@@ -1390,6 +1390,7 @@ GameObject:
   - component: {fileID: 7587179531378321919}
   - component: {fileID: 4427823077517298360}
   - component: {fileID: 6466893372288311139}
+  - component: {fileID: 4683557002268155114}
   m_Layer: 0
   m_Name: finalfinalfinal_Orc_forsure_final
   m_TagString: Untagged
@@ -1520,6 +1521,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   ToDisableForRagdoll: []
   CopyRagdoll: {fileID: 7263687050897575683}
+  isHoldingObj: 0
+  HoldingObj: {fileID: 0}
 --- !u!114 &7263687050897575683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1596,6 +1599,19 @@ MonoBehaviour:
   engangeTime: 5
   DirtPrefab: {fileID: 6990740340728766461, guid: 5120632f682dff742b69e8d273543e03,
     type: 3}
+--- !u!114 &4683557002268155114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848398006119445896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9fe8fc2030c0844881fb25d94947358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hand: {fileID: 1777026945943056594}
 --- !u!1 &2979625175160081055
 GameObject:
   m_ObjectHideFlags: 0
