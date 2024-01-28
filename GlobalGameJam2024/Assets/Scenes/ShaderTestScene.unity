@@ -19062,6 +19062,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3905045473919167677, guid: 185421e4f816fc047ac38cf68595ed98,
         type: 3}
+      propertyPath: RiseOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905045473919167677, guid: 185421e4f816fc047ac38cf68595ed98,
+        type: 3}
       propertyPath: ShipTransform
       value: 
       objectReference: {fileID: 149288826}

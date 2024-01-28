@@ -8,4 +8,17 @@ public class ShipSpawner : MonoBehaviour
 	public float maxRespawnTime = 90.0f;
 
 	private float nextSpawnTime = 0;
+
+	private EnemyShip eShip;
+
+	private void Start()
+	{
+		eShip = GetComponent<EnemyShip>();
+		nextSpawnTime = Time.time + Random.Range(minRespawnTime, maxRespawnTime);
+	}
+
+	public void Update()
+	{
+		
+	}
 }
