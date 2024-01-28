@@ -33,6 +33,11 @@ public class Orc : MonoBehaviour
     public bool IsRagdolling = false;
     public bool IsSelected = false;
 
+    public Transform IconsParent;
+    public GameObject SelectedIcon;
+    public GameObject WorkingIcon;
+    private Vector3 iconsParentDefaultPos;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -41,6 +46,8 @@ public class Orc : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         _neededWanderTime = Random.Range(minTimeToWander, maxTimeToWander);
         _wanderTimer = Random.Range(0, _neededWanderTime);
+
+        iconsParentDefaultPos = IconsParent.localPosition;
     }
 
    public void Work(AbstractInteractableObject interactable)
@@ -79,6 +86,8 @@ public class Orc : MonoBehaviour
                 _neededWanderTime = Random.Range(minTimeToWander, maxTimeToWander);
             }
         }
+
+        UpdateIcons();
     }
 
     public void RagdollForSeconds(float seconds)
@@ -133,6 +142,14 @@ public class Orc : MonoBehaviour
         gameObject.transform.SetParent(null);
     }
 
+
+    private void UpdateIcons()
+    {
+        IconsParent.localPosition = iconsParentDefaultPos;
+        IconsParent.localRotation = Quaternion.identity;
+        SelectedIcon.SetActive(IsSelected);
+        WorkingIcon.SetActive(currentTask != null && !IsSelected);
+    }
 
 
 
