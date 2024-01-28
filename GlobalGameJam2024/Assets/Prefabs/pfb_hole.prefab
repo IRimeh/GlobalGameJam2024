@@ -50,6 +50,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Splash: {fileID: 6569063862946667755}
+  isCleaned: 0
+  TimeToFix: 10
+  ObjToDestroyWhenClean: {fileID: 4451720324326386310}
+  HammerPrefab: {fileID: 4345766766389887043, guid: 3f70a862f378caa449371bddef2f59b2,
+    type: 3}
 --- !u!54 &52881284
 Rigidbody:
   m_ObjectHideFlags: 0

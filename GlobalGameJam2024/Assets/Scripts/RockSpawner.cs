@@ -41,6 +41,9 @@ public class RockSpawner : MonoBehaviour
     private float _currentRotateSpeed = 0.0f;
     private float _targetRotateSpeed = 0.0f;
 
+    [Header("Here ya fukin go daniel, happy now eh?")]
+    public List<GameObject> ObjsToMoveWithBoat = new List<GameObject>();
+
     void Start()
     {
         defaultSwayTransformRot = SwayTransform.rotation;
@@ -74,6 +77,7 @@ public class RockSpawner : MonoBehaviour
 
         RotateShip();
         MoveRocks();
+        MoveOtherObjs();
         ReplaceRocks();
         SwayShip();
         SwayCamera();
@@ -120,6 +124,14 @@ public class RockSpawner : MonoBehaviour
         }
         Shader.SetGlobalVector("_PlayerOffset", playerOffset);
         Shader.SetGlobalVector("_MoveDir", moveDir);
+    }
+
+    private void MoveOtherObjs()
+    {
+        foreach (GameObject obj in ObjsToMoveWithBoat)
+        {
+            obj.transform.position += moveDir * Time.deltaTime * RockMoveSpeed;
+        }
     }
 
     private void RotateShip()

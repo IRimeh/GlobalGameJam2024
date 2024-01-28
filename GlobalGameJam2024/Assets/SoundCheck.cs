@@ -21,9 +21,17 @@ public class SoundCheck : MonoBehaviour
         ambientVCA = FMODUnity.RuntimeManager.GetVCA("vca:/Ambient");
         sfxVCA = FMODUnity.RuntimeManager.GetVCA("vca:/SFX");
 
-        musicVCA.getVolume(out musicVolume);Debug.Log("musicVolume" + musicVolume);
-        ambientVCA.getVolume(out ambientVolume); Debug.Log("ambientVolume" + ambientVolume);
-        sfxVCA.getVolume(out  sfxVolume); Debug.Log("sfxVolume" + sfxVolume);
+        musicVolume = -15f;
+        ambientVolume = -30f;
+        sfxVolume = 0;
+
+        musicVCA.setVolume(Mathf.Pow(10.0f, musicVolume / 20f));
+        ambientVCA.setVolume(Mathf.Pow(10.0f, ambientVolume / 20f));
+        sfxVCA.setVolume(Mathf.Pow(10.0f, sfxVolume / 20f));
+
+        //musicVCA.getVolume(out musicVolume);Debug.Log("musicVolume" + musicVolume);
+        //ambientVCA.getVolume(out ambientVolume); Debug.Log("ambientVolume" + ambientVolume);
+        //sfxVCA.getVolume(out  sfxVolume); Debug.Log("sfxVolume" + sfxVolume);
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/BGM/Ambient");
         StartCoroutine(nameof(DelayedStartMusic));
