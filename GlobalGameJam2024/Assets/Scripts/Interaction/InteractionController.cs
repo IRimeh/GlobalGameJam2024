@@ -81,12 +81,10 @@ public class InteractionController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))//Charge slap
         {
-            
-        }
-        if (Input.GetMouseButtonUp(1)) //Release slap |give command
-        {
-            rightArmAnim.Play("Slap");
-        }
+			rightArmAnim.Play("Slap");
+            FindObjectOfType<BonkStick>().Bonk();
+		}
+
     }
 
     private void OnDrawGizmos()

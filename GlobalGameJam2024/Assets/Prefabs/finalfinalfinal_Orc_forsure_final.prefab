@@ -1406,6 +1406,7 @@ GameObject:
   - component: {fileID: 6466893372288311139}
   - component: {fileID: 4683557002268155114}
   - component: {fileID: 5188593906610010858}
+  - component: {fileID: 5188593906610010869}
   m_Layer: 0
   m_Name: finalfinalfinal_Orc_forsure_final
   m_TagString: Untagged
@@ -1611,8 +1612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dcd8b8b81e36c4486f30191aae9aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDropTime: 1
-  maxDropTime: 2
+  minDropTime: 10
+  maxDropTime: 60
   engangeTime: 5
   DirtPrefab: {fileID: 6990740340728766461, guid: 5120632f682dff742b69e8d273543e03,
     type: 3}
@@ -1645,6 +1646,20 @@ MonoBehaviour:
   cooldown: 10
   minForce: 50
   maxForce: 150
+--- !u!114 &5188593906610010869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848398006119445896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79039354870b75944b3f5ffe8b9aa379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonkForce: 200
+  cooldown: 5
 --- !u!1 &2979625175160081055
 GameObject:
   m_ObjectHideFlags: 0
