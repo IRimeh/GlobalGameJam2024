@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 1359460557657550535}
   - component: {fileID: 1359460557657550532}
   - component: {fileID: 8708775991656806646}
+  - component: {fileID: 6912602011276335738}
   m_Layer: 5
   m_Name: gameOVerCanvas
   m_TagString: Untagged
@@ -255,7 +256,20 @@ MonoBehaviour:
   Score: {fileID: 317779273}
   GmaeOverShowTime: 5
   ReturnToMenuTime: Infinity
-  time: {fileID: 0}
+  time: {fileID: 6912602011276335738}
+--- !u!114 &6912602011276335738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359460557657550533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6173319120cd25c40a69d0826c8787ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartTime: 0
 --- !u!1 &1359460559084463933
 GameObject:
   m_ObjectHideFlags: 0
