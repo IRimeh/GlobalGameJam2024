@@ -9,7 +9,7 @@ public class GetDamaged : MonoBehaviour
 	public GameObject HolePrefab;
 
 	[Button]
-	private void ReceiveDamage() {
+	public void ReceiveDamage() {
 		Orc[] orcs = FindObjectsOfType<Orc>();
 
 		Orc target = orcs[Random.Range(0, orcs.Length)];

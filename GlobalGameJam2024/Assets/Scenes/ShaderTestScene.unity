@@ -221,6 +221,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15db0491de591da4bb09e77a9506411e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &73572781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73572782}
+  m_Layer: 8
+  m_Name: EnemyShipStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73572782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73572781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -151.78, y: -41.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450652522663576}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &116723674
 GameObject:
   m_ObjectHideFlags: 0
@@ -11550,6 +11581,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8536425139288874787, guid: a4aaf808a84056e4189a77d583e39f7a, type: 3}
+--- !u!65 &1202884534
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202884528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 32.82, y: 7.57, z: 6.8}
+  m_Center: {x: -1.6, y: 1.98, z: -0.120906845}
 --- !u!1001 &1220823858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13338,6 +13382,7 @@ Transform:
   - {fileID: 1083875875}
   - {fileID: 2090282570}
   - {fileID: 663784100}
+  - {fileID: 73572782}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
@@ -19002,6 +19047,16 @@ PrefabInstance:
       objectReference: {fileID: 2090282570}
     - target: {fileID: 3905045473919167677, guid: 185421e4f816fc047ac38cf68595ed98,
         type: 3}
+      propertyPath: Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905045473919167677, guid: 185421e4f816fc047ac38cf68595ed98,
+        type: 3}
+      propertyPath: StartPos
+      value: 
+      objectReference: {fileID: 73572782}
+    - target: {fileID: 3905045473919167677, guid: 185421e4f816fc047ac38cf68595ed98,
+        type: 3}
       propertyPath: BoatSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -19019,6 +19074,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295626595752036800, guid: 185421e4f816fc047ac38cf68595ed98,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7637590867347323252, guid: 185421e4f816fc047ac38cf68595ed98,
         type: 3}
@@ -19097,6 +19157,11 @@ PrefabInstance:
       objectReference: {fileID: 2033954792}
     - target: {fileID: 7637590868665238913, guid: 185421e4f816fc047ac38cf68595ed98,
         type: 3}
+      propertyPath: ShipDamage
+      value: 
+      objectReference: {fileID: 3469287838655070526}
+    - target: {fileID: 7637590868665238913, guid: 185421e4f816fc047ac38cf68595ed98,
+        type: 3}
       propertyPath: ShipTransform
       value: 
       objectReference: {fileID: 149288826}
@@ -19118,7 +19183,7 @@ PrefabInstance:
     - target: {fileID: 7959150340627043194, guid: 185421e4f816fc047ac38cf68595ed98,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -27.1
+      value: -27.11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 185421e4f816fc047ac38cf68595ed98, type: 3}

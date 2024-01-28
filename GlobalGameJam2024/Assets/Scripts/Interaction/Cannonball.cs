@@ -35,6 +35,11 @@ public class Cannonball : MonoBehaviour
                 meshRenderer.enabled = false;
                 coll.enabled = false;
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ShipGetShot", transform.position);
+
+                if(other.TryGetComponent<EnemyShip>(out EnemyShip enemyShip))
+                {
+                    enemyShip.TakeDamage();
+                }
             }
         }
     }
