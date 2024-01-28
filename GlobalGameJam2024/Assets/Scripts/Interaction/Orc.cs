@@ -61,13 +61,16 @@ public class Orc : MonoBehaviour
     public void StopTask()
     {
         StopAllCoroutines();
-        if(currentInteractable != null) currentInteractable.OnStopTask(this);
         currentTask = null;
+        if(currentInteractable != null) currentInteractable.OnStopTask(this);
     }
 
     private void Update()
     {
         hipJoint.targetRotation = Quaternion.Euler(new Vector3(0.0f, -transform.rotation.eulerAngles.y, 0.0f));
+
+        if (currentInteractable == null)
+            StopTask();
 
         if(currentTask == null && !IsRagdolling && agent.isOnNavMesh && !IsSelected)
         {
